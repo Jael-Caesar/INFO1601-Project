@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Shop</title>
+</head>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f4f7f4;
+    color:#333;
+}
+
+nav{
+    background:#2f6f4e;
+    color:white;
+    padding:15px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+nav h1{
+    font-size:24px;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:20px;
+}
+
+nav a{
+    text-decoration:none;
+    color:white;
+    font-weight:bold;
+}
+
+nav a:hover{
+    opacity:0.8;
+}
+
+.hero{
+    height:70vh;
+    background:url("https://images.unsplash.com/photo-1501004318641-b39e6451bec6")
+    center/cover no-repeat;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+}
+
+.hero h2{
+    font-size:48px;
+    background:rgba(0,0,0,0.4);
+    padding:20px;
+    border-radius:10px;
+}
+
+.products{
+    padding:50px 40px;
+}
+
+.products h2{
+    text-align:center;
+    margin-bottom:30px;
+    color:#2f6f4e;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:15px;
+    text-align:center;
+}
+
+.price{
+    color:#2f6f4e;
+    font-weight:bold;
+    margin:10px 0;
+}
+
+button{
+    background:#2f6f4e;
+    color:white;
+    border:none;
+    padding:10px 15px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#24563d;
+}
+
+.about{
+    background:#e7efe9;
+    padding:50px 40px;
+    text-align:center;
+}
+
+.about h2{
+    margin-bottom:15px;
+    color:#2f6f4e;
+}
+
+footer{
+    background:#2f6f4e;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:30px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <h1>🌿 EverGreen</h1>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Plants</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</nav>
+
+<section class="hero">
+    
+</section>
+
+<section class="products">
+    <h2>Popular Plants</h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <img src="">
+            <div class="card-content">
+                <h3>Monstera</h3>
+                <p class="price">$25</p>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1509423350716-97f9360b4e09">
+            <div class="card-content">
+                <h3>Snake Plant</h3>
+                <p class="price">$18</p>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1497250681960-ef046c08a56e">
+            <div class="card-content">
+                <h3>Peace Lily</h3>
+                <p class="price">$22</p>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="about">
+    <h2>About EverGreen</h2>
+    <p>
+        We provide fresh indoor plants to make your home greener and healthier.
+        All plants are carefully grown and delivered with love.
+    </p>
+</section>
+
+<footer>
+    <p>© 2026 Plant Shop | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>

@@ -42,3 +42,38 @@ function displayPlants(plants) {
         container.innerHTML += card;
     });
 }
+import { CONFIG } from './config.js';
+
+const API_BASE = `https://perenual.com/api/species-list?key=${CONFIG.PERENUAL_KEY}`;
+
+// Function to fetch plants
+export async function getPlantData(searchQuery = '') {
+    try {
+        const url = searchQuery ? `${API_BASE}&q=${searchQuery}` : API_BASE;
+        const response = await fetch(url);
+        const json = await response.json();
+        renderPlants(json.data);
+    } catch (err) {
+        console.error("Aqua Fern Error:", err);
+    }
+}
+
+// Function to build the UI cards
+function renderPlants(plants) {
+    const shopContainer = document.querySelector('#shop-grid');
+    if (!shopContainer) return; // Only runs if we are on shop.html
+
+    shopContainer.innerHTML = ''; 
+
+    plants.forEach(plant => {
+        const img = plant.default_image ? plant.default_image.thumbnail : 'assets/placeholder.png';
+        shopContainer.innerHTML += `
+            <div class="plant-card">
+                <img src="${img}" alt="${plant.common_name}">
+                <h3>${plant.common_name}</h3>
+                <button onclick="saveToWishlist(${plant.id}, '${plant.common_name}')">♥ Wishlist</button>
+                <a href="detail.html?id=${plant.id}">View Details</a>
+            </div>
+        `;
+    });
+}

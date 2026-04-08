@@ -3,149 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plant Shop</title>
-</head>
-
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-body{
-    background:#f4f7f4;
-    color:#333;
-}
-
-nav{
-    background:#004d3c;
-    color:white;
-    padding: 50px;
-    gap: 100px;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    vertical-align: middle;
-
-}
-
-nav h1{
-    font-size:24px;
-}
-
-nav ul{
-    list-style:none;
-    display:flex;
-    gap:20px;
-}
-
-nav a{
-    text-decoration:none;
-    color:white;
-    font-weight:bold;
-}
-
-nav a:hover{
-    opacity:0.8;
-}
-
-.hero{
-    height:70vh;
-    background:url("https://images.unsplash.com/photo-1501004318641-b39e6451bec6")
-    center/cover no-repeat;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    color:white;
-}
-
-.hero h2{
-    font-size:48px;
-    background:rgba(0,0,0,0.4);
-    padding:20px;
-    border-radius:10px;
-}
-
-.products{
-    padding:50px 40px;
-}
-
-.products h2{
-    text-align:center;
-    margin-bottom:30px;
-    color:#2f6f4e;
-}
-
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
-}
-
-.card{
-    background:white;
-    border-radius:10px;
-    overflow:hidden;
-    box-shadow:0 4px 12px rgba(0,0,0,0.1);
-    transition:0.3s;
-}
-
-.card:hover{
-    transform:translateY(-5px);
-}
-
-.card img{
-    width:100%;
-    height:220px;
-    object-fit:cover;
-}
-
-.card-content{
-    padding:15px;
-    text-align:center;
-}
-
-.price{
-    color:#2f6f4e;
-    font-weight:bold;
-    margin:10px 0;
-}
-
-button{
-    background:#2f6f4e;
-    color:white;
-    border:none;
-    padding:10px 15px;
-    border-radius:5px;
-    cursor:pointer;
-}
-
-button:hover{
-    background:#24563d;
-}
-
-.about{
-    background:#e7efe9;
-    padding:50px 40px;
-    text-align:center;
-}
-
-.about h2{
-    margin-bottom:15px;
-    color:#2f6f4e;
-}
-
-footer{
-    background:#14695b;
-    color:white;
-    text-align:center;
-    padding:20px;
-    margin-top:30px;
-}
-</style>
+    <title>Aqua Fern Boutique</title>
 </head>
 
 <link rel="stylesheet" href="css/style.css">
@@ -159,14 +17,15 @@ footer{
 
 <!-- NAVBAR -->
 <nav>
-    <h1><img src="https://static.vecteezy.com/system/resources/previews/035/645/850/non_2x/ai-generated-lotus-flower-isolated-on-transparent-background-free-png.png" style="width: 100px; height: auto;"> Aqua Fern Boutique
-        <a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAA40lEQVR4nO3Rr4oCURTH8auIZcFiMFtspn0D22abLyFYjFcQzxnY5APYNhmE8dwrGMRo8QUsNsEqGDS4v2VxnAFx/DMOGJwD33b5HA5Xqbca0LDxX/wwkAJLC2xwTLrQOh0PrqcZkOkFuN8PdD/7HP49/gDJ6AJ+jGQCPcpFw2mQB8ksFA+ao+MWHsPbbhEsizvwU0uQLd2HO7YMMqsHcHitwebzOs62ApZNBBzen2zh2K8wvAqSXWSc/fZwbO0MlzrYHGLA4V3yCzbNkEuew9XNT37VAhXxXbIAyQLEviAZdTZ/ifH/lYl2BNIAAAAASUVORK5CYII=" alt="home"></a>
-        <a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC+0lEQVR4nO1WSWtUQRAeQWMMxOUg/gFRSQQX/AGK60GIihATBcUouNw0XvQwl7zqGVSIG5KQ4EUEo2jmVb0JUXSIC6jkrsHEg0GDKF5cs37S/XomM5k3S5LxloaC5lV99VVVV3W/UGhu5Vlo6V0AklMgeQ0lv3zhV4jwSYQT80P/Y0HJMhC/hBIEC79A+OHS0pIC80D8xJK8hZIaRDsrjTjuHhC/MzriR9q2dMSK96ZIA7LS31LkSmpKQ3olvhBK7hVyCkf22azvaszMyhrx6qHkGYj/ZpxjtLMyJy4cX5xhq7HEPSCpK1h+hBPlIHHTwD+hZADEI1DyvmDQxP3WdsBik34681YBJO3W+DvIrU0am4AudywqSBx2K7RtChPhA8aXMj5bg0FOvArEE2Y2nXhVXoImWa8r4Auvy2sbiVWD5Lfx7bhrgrK9YCNrKZiZ4ra0+W0rbC+t1vZ8ADHfss6OBILNyEgCxINQ3JVG3GW+6TmPPF6SI9Cj/llLe5Dyhq90zwSCHT6e+9ZKincsEEvSaJvsalDGB21UiUBw1NsExaN5rsxRNLkbcxA/t77rAkrpVoDkU97IHV4LJd1QMp5GqvfdWheIUXzWZjuYczJA7g4zh35339YdmaGPeNvTZnMkowKOuzXTNlYNxXcmbWVbIOkkgHeCeMiWry8zY9mSlukbKOlNK/XmKZn2WdIhnVBe0snMpdk6jGbpHGnQTQLyViHatdrsHWnIslN80Z5rc1GkPkg+gGQMTnx50aCsAGMrzPkT9xcH8N/eCSj+PFPSlC/iL5q8eGJ9beprLtxRNrvnlP9AyY/pRNpjzifi1ee28XZryalXcsg23dPiif33WDfGV6j4hhxO9fyOBwWnMVDyzd6EtcUTm3OWB7azh82jQHwY5J4AsdigxozYrKC808bGf0CG7Sjdn/Y/GMIdZSC+PuWWSspHf95ll9ln6zXm2mx6JASKrYSSc1ByEySXzL+Vfez9ABPlcHi/0fk2jRozY8K5FSrx+geS24YZf1aHugAAAABJRU5ErkJggg==" alt="spa-flower"></a>
-        <a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAADLElEQVR4nO2ZzU9TQRDAX+TkycSvg97UA4YvTTT8B0aMfwDR8A+Y+HHQkx9woLMPCuHkH0DESw/GdqZEY7yphKAgHrzoCQ4KBsNBSVRgzO5rad9X3+5roavpJJO0mZ3Z+e28nbfbOk5LWtISLWGgAQZcY0GLnMFOx1LhDHaqHGWuQAPhAYK+syD2FFfZLXY5lgm7xS6VWzlPwLXwIMAPFRD7YDgIoUDofUzJAgMtgeEoCPk9bgtwptDOgF9sgmGXTqfKySYYTgthEwzXC2EDDDcKopkw3GiIZsDwbkHsJcyuQ+wFTEMgGPASAy77g0QHjH0xVdsB1+Nj7Rwt1o1iiqDdF2uZ3WKfUxvCAKb0lmVB15NB6JrOaYKTICq65GgM0p1g0atw/pRGvBNJ5zvWh1BqAJIwUekkypnpI8kVeXKo1ombDSFSgAQm9B6Nheq7AUPxcmIM+UxX34EA53ceTdccIiVIeU/ku0ONYzy3nwW904jxVo4N+Wfy3Wkg6gBR+pOBbvPo9EkFAIULDPhR21+OlT7SV8YQdEfFTJlPPSBWqaPXfq3XJbm5+uSHfxmCgS46/53wWOEwC9qyYIVZU7c4+/xoNAzQrHFAtcfwIQPOhe34hwEfe0qbEb5zJV/zfQo0G18VgUOGED945Okx5ZvLtan3gx/kZmWR8FYIIpdrU7ZhPG7eenEoHgSo1xBkLrAQWZ/dzXfs2Nx8RyCRrH/uqIpSrYr0xoMMDu5jwBUDkJlAMsJnzxTaffcZv68I+M4YQHyTucaCeKtKU/aD4KOaEKWAV60HcYtXkkHGnx2M7DC2gABtlq8BOlWZsbgib7QgVFBBD6wFAbyvDwKF89aCjBTP6YPINizoq30guJrYdsNVoUkNkHmfj6CJwMQ9FRv2BPwn/L64oLHRJ40gVGAX+zVK/YuH6Yw3/sUBBvwcAB2tWpixgO8n6eNBTJ9lwN+J87nYbw6i24aBNhjwZeyJQP6wIDXatuL50obGPJsyJ2MQbxXxtdYG3BPFV6kgFIige80HoHJF7qYHkb9bAW43HwK36/7vX90jTE7EjYdYYaAbdUG0pCUtcf4CVwrOs2ESiHgAAAAASUVORK5CYII=" alt="shopping-basket--v1"></a>
-        <a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABTElEQVR4nO2UvUoDQRDH7xVsRAsRQQsby2ChlaiIrT6Cvsh5O6s+gArR0sJG7mai+BY2NoKF+IEgWESMkkD+cotegrfZ5OIGLBwYOLjZ/2++mCD4t6KGMJ4AyQEU34G4AZJ7EJeh4sksZpunoOTw61/DxCreT9+6xTUvg+QVJMi54joi3gDJpvm2xkgVKllyZW4XpwzSNO6MkSpCGc8D0ra4HlIh38sDTM89AZTc2gAf/irgd1uLbjxWcG0DHHmsoGxZ0bNZP9lzE5pL9lUlOfGQ/bFV3AB2L4ZB/PgLwBN2ZKQjwEAinoeSWh+DrUEnc07x1jwqi4XWVnEdWlZ7Em+bx3rHm/NTPOK1QuKtdiULXe7TG3RlpS/xDKK5BCXPFvGXnnveHSLT6X1pG+gDonjGi/i3Yet8FEouQXyF8HQsGISBZCj1gYj/WfsEX5loMZA8id4AAAAASUVORK5CYII=" alt="hearts"></a>
-        <a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAKUlEQVR4nGNgGAUjB/xv3/KfmpiB7haMgoEH/0dT0SigGIymolEweAEAwi6CyBIzYEEAAAAASUVORK5CYII=" alt="menu--v1"></a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
+    <h1><a href="index.html">
+        <img src="https://static.vecteezy.com/system/resources/previews/035/645/850/non_2x/ai-generated-lotus-flower-isolated-on-transparent-background-free-png.png" style="width: 100px; height: auto;"> Aqua Fern Boutique
+        </a>
+        <a href="plants.html"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAACXBIWXMAAAsTAAALEwEAmpwYAAADe0lEQVR4nO2aPWgUQRTHxwRUFCsrbSQWNiooIgQEU0aNCajYiK0fTUghomBxwuXmbbBKq40WKTxUcvfeXZAgaiNRIhgFkzJ+4EcRMMHTiMG/zN4lRPcu2b3sbibJ/mCam9nZ/TGz8+berFIJCQkJCQlzAFgHEgfEvUilGtSql9V8CySolJvmN7VSgc5fBMkTZPItVetJ9DzZSuHuqm0z+RZofmr6VDaCtOwAScmV0PwHJLfR079lrp7krFe2UpzCmbl2Nx5uhpY78+pLpm9lGyDJVZEZBcnOcuHJmsKmLp1rQvfANpAMV2mTUzYBp9hcW0Y+guTlAvWzZRjE47VnQbFZ2QI09/kQWlrR3KdsAL3FDdAyFYPwd6Qeb1xuXwVH2iKXnZvW0rbcvsqEldiENadtEOb4hCVvw4I1FuMIj9kg/DU2YZIvNghPxzjC02tMWH6ssSnNn2zYQ4/GOKXf2jDC92IUvmvDTutqfFNaLtvwp/9gjMIHlA2AZCSG6fxaWZbaQaQlw+eULSCVagDJswiFXyCbbVQ2AaewF5q/RTCVvyHDe5SNwE31LJS7Clp40qrUTjXMaEDL8xBkh+DkdquVALLZxspCFnz11vIKjlyw7p31C6i4392cmESfkakmaOpMm27Zp2wBmieg5R1IBt2zIc0dJmkeuJ//hANf7ybquaN8PiWD7jNpngjaz6LUyBmXQHwfDrf6PSOqR9g9kzL3MPeaPd34930fV2GD8sgu9P6NgAqnwhY2ffpYCwZDE52lMoX8xM1H0IVdaonC7tELScHnPUmFDSjfHmClnYLmY/UKm2uDJffz7eELp/Kb3Oy/f+kZEHcFFQbJeRD/DhDKSvUsnr6oLBqB4qq3j9r1IL4UtH/zTCoq4K6U0QiD5HTlXDmYsMOtUX+fMRK2sHt+XN8fj5HIP5lAOUyEK6wlX4cs/ITB2M+TvNd62hyuT5YHwrHxgRsjfYYNz7XeBx8KLGvunc41qTiBliN+wsfiwoFlZ8xeOlbZWUDSGbswSadaTkDcVd5kRCxcDllXlA2A+EStd9rbtq4F6qeJ08om0NO/vVp4CUH4jVWJAc/GJCMnTdJ8ycJmI6LlGlLZ9cp2YPLUTuGoOWjz1Gn+sIjse2hJQT/YqlYD0IXj0PwZJL/cs2X3GxGzkeHryBQOrfpPihMSEhISVG3+Ar+KL1SzEULbAAAAAElFTkSuQmCC" alt="tulip"></a>
+        <a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC4ElEQVR4nO2aO2gUURSGr0bLgCJY2BhRsVJDrFQIiJUEEXxUCoKghSDYi240O+fuKlhoClNYqc0Wutlz1qAiMaDYWNhooiIi+EBJoUYRjeaXmd1oDCbs3JnZOxPvBz8sLHP2fJydx969SjkcDofD4cgkyFc6QHwSJIPQMgziz9D8FZrfQMstaO5Gobq24Xpe/7rgGP9Y4rdBraCmX1sGg8/KVzqStZoGgHnweDeIR6AFDeYOqLJxxpoF2QTioYbrBZ9d3eX3opIEPf0rQHw/hOjU/ISW8yiWW3/XK5ZbQdxbfy98TeJ70ANtych61c0gfmcoOyX8CD2yHMXyMpA8jF5PRuHJlnhltXRCy7cYmqtPRl4HiaterbfOmGQH2qD5fYzNJZVRnL6+MvoFiozP2ebHP6ejXMigZY91ibDxZGeU6Y5YFwg/5cem091gvXnT5KXdRPiU9caNw93hhSl4XEQmQ3zbRPhphoVHwgtrGbPeuHnGTCb8KQWNG4Y/Gghz9m5JUW5N0FLN8ITZZMJH7TdunCPhhYsDa1LQuFmKvDq0sA8037XefNgQDylT8D/9ePBBbnABND+xLtF4hlEqtagoQFe2p0CksRSkK5LsJLUl1xQIzRbimyre1UpJ75OXv3ZN/atiE/YByWHrYjPnkIob1FZAJIXTLSe2IA8ti6HluXXJP3mG3LVFicj+9X+Sli/WZWv/Y61XzQAF6YLmcXuy8gNadjRFdhJo2QfiCQuTnYDmA8oG0HLCwnSPWZGdBMTnmijcp2yDUqkFxFeaIHs58nNyvNJyMcHz9lJqZKc9mMT/9Sa+gFxuvkojqEmfjVG2N/FtDXFQ35gSRXQCxMdVlgDxfhB/Dy/M4/D4oMoi8CpbQfwhhPAYCtVtKssgL+0gednA1/iFv09LzQVAV5fMumri79E6c2OpmkvAv1drKfxDuA99DxaquQqI99a3LL3yX9vux+FwOBwOh2oavwAKpVGPwzQYFgAAAABJRU5ErkJggg==" alt="filled-like"></a>
+        <a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAACXBIWXMAAAsTAAALEwEAmpwYAAAChElEQVR4nO2aP2sUQRjGxyKC9v4B44fQVsFgZRAlFpJGREtNJ7FOYXbeRRGMeEV6LbxGnPfdExv1A0RLP8D5BzRd1CqGR/Y0kVtPb2d2bnfWzA/ebu6d59mZe5hdRqlIJBKJ7GKQmDlofgcS/LPyMYmZU20GJBdBvDnW7I5p+Q6SSyoksGyOQ/MjEH8EyVZpM/5qC1o+gOQhqHdssma1LP5aBYRRvAltbkzGLPHlisLm//4gzbzV1v+z/P4NsGT2Q8u6o5h+mTAahFs+1u2Bfsbd7j5/hokvDIcLfwWZc1hdm/I2SVktq2tT0HweJN+GNPlMeGhJCml6z1tzV03EKwVNicfm0i1soyvemrtq0uZqYdc99tic3wxvn+yEt+aumlJzsrAIr/0117IxbPjpIW/NXTXdlsOFLb0xmcYkX1QghLgQkUikZpDKWZC8b/7FoGLl79dpNjvecJmX9fZUf7zh5kV6LRUNF2haYDRMkzasd1topdnsf2K6Dy1nxhr+vbW5E4Box+JOaaPbgLKF5oU7lpbryhYQz9hNwoJlPoK0Nw3NvdrGjV7hGXvDd54ftJok7U3v/PbWk6O1jRtVSe+AteGcwefPkpOoAnWNG7Gd15UrIHnVQsMvKxjmTvsM84MKhrOF9hl2SGiXpA7GcGJOKVdgkdThGHZMaNukDsKw5k+qKiiZ1GEYrpDQtkkdyAq7J7RtUgdhOOVrqioom9QhHC2rJLR1UucH/PygPxDHz2ob5zOhXc7UjZWPhHY5UzdX/EL5Aprvt8Dwij/DlJ1u3lANgbUNgD0/b98FYGx0dXONyidY6u4FyU1ofhvGbbz8sttAy2IT16cikUgkEokoa34AVHmL/aIu9QgAAAAASUVORK5CYII=" alt="shopping-basket-2"></a>
+        <a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAACXBIWXMAAAsTAAALEwEAmpwYAAACfElEQVR4nO2av2sUQRTHn30giKBgo6KdYCH+B6ZSEYOChSAIdhaiQRSvSBHvvYsRJFgIFoJlDpTcvreRcIVaKQQ0qbUxxlYLNf5Izq/smYAcHGQ3O+4MmQ98u9tlPry5dzM3QxSJRCKRLQ7qrUNgq4H1BVjfgfVrN2JvIfYcojezz1DooNE6CFGFGDaYNm4lhylEIHYNYp0csuvpQHSEQgKikwVEe3OXQgCSXixB9m84uUA+g9sz+8G2XJqw2DeMtfaRr0DsQYmy67lPPoJ6axdYf5QunL1zYnYn+QZEzzuo7rr0OfINsD1yJiz2kHwDbPMOK/yafANsHx1WeIl8Ay4a1j+Ni3wD5f7+9uYLbakpzfqBfAPZ1s+ZsD0j34DYPXdTWifJN1DXMw6Fh8k3ILYdrL8cCP9Eoz1IPgLWaQfVfUy+Ak5POOjQx8hXAGyD2EKJ3Xk+eyf5DESHS6zuSQoBsM6UIDxLoQB5uhdinzch+wljtodCApKeBuvvArId1JNTFCKQ9FIB4SsUMsgpTKGDKGxRGFE4UCA2lLtL15OjFCLg1gGILeYWZnufnVFRKKDRHkTDbmR/vG1ipZU9e93fffBocwCcnAXr1NpVhqKiPdXuXo2Y6r57tDlQrSQ/2bF2ntQsVbJv9Hv3SoToZYxP7/5/+92GHYdYCrZV95J9v+erYLXuWFztlzGeHgHrXGWS/af9XDa2cmVFRyC6Urlc/+m+Ak6uliPLVqteaMNTvVbGwqFTuUi+vXTxhQtE33ggkTcLhRoZiiwL/clQfmG2Ox4MvGB0okCF9VX1Ay8Y1pcFhG2p8oEXz6JvJ/pwW2Fbzi0ciUQiEaqePwrpOpM3NZYzAAAAAElFTkSuQmCC" alt="gender-neutral-user"></a>
+        <a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAACXBIWXMAAAsTAAALEwEAmpwYAAADQ0lEQVR4nO3ay2sTURQG8BHtqhWhoosKoiAiRXdufeEDVPBPUMGNL9oqaETRiHXOnVC6tyuhWgsBa5tzkra46KIWXVT6El25EMWqVcGFfaj1k8mjCGnMJLmTScb54EAotHN/PTc3MzfXMIIECRIkyH8YUM9aEB+B4psg6YbiZ1DyDkq+guRXsuzX9s+In0LxA5CEYcUPo32g3qiGoLVvM5SEUgBZhBIUWYvpvxGC6t9kVFpgyVEo7i8RmRuvJG533munATO2Pz1VUZayu27KvvJD2wfqoaSjbNDsisJMrCsP1oztAfG0h9h08SdY8YPuYpVcSK+uHmOX0D9B3OIWNuQ9MGdZerHErRWA+neRhPVgTTmlcWALMPkyIr0NyUrNmgU9YP4NJSdLw1rxHVA8pxEccvWtQjILM9FYHLZjtAZKprROu0hvQ9Z1Up3WOL15DOGhVYWDFTfrHUgO8G3eoP06Kn6uMGykdzWIv+gfyDJT2pIr2q9DMoNwtM45mPi8C1ikF6iQK4tWNvpsIeCXLoHLWVPOsGZsWwUMVlOX41sddDd20T9gzn/bCeIuzweqrbjTCXjSPx2W8fxg+7HLxUFkX89V9AcnHZ73DZh43kGHXfpc9AQss07An/0D5un8YJJx34AVjzkBd/sI3OnNU5J34Ob8YDPR6Bsw9W3JC04PYsIH4AlH2OQgSJqqHkyx087BbYO1bt1xlQVsbwC0DdY6Bqe6zC1VC7b4TEFYO/ZGWHJDrPrAzxGNrjSKCUzeDiXfqwfMc/bWclHYTEB8wpVpp7uSG/F83NARKLlR+WC5pgWbCZS89hyVu24ZugPFDysAtszXpdKkHWsHxPcqDPseSnYbbgXEiYpZnIjv2sei3MMCK0D80XusDMPkXa5BM7FPzniItA+xxVw/z/F3oORRAVNuEiRDJe2NpZDDUHIJVmyjUc6A+JhD6I/kMcOO0Zrk74WjdVByIH0yrwuKn4D47dLRQ3uFTb1+A+IRKLkP4uug2CFYj9eUFZmJ/d9Nr4b5wPGSb+m8DtoG10PJqzxdHYHivYYfAiWjOd5fMyC+g0h8p+GnILlo8DeQvABJDxRftT8Sin70ChIkSJAgQYx8+QPTRkDrTIoIEwAAAABJRU5ErkJggg==" alt="about"></a>
+        <a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAdklEQVR4nO3XQQoCMRAEwDxPfVjif3b8zgqSf4zsNR4UXNRgFfR9GubSpQAAAPCCrMsp63LNFjl1tg7ny/F54Ra3rx+7X7rCo+0NssX6A8e+mzVrHB4KAgDwKWktxczpCo+sJQAAdpLWUsycrvDIWgIAACh/6A43p8/zzVSIyQAAAABJRU5ErkJggg==" alt="menu--v3"></a>
     </h1>
 </nav>
 
@@ -206,6 +65,19 @@ footer{
             </div>
         </div>
 
+    </div>
+</section>
+
+<section style="background: var(--soft-pink); padding: 60px 0; margin: 40px 0;">
+    <div class="container" style="display: flex; align-items: center; gap: 50px;">
+        <div style="flex: 1;">
+            <h2 style="font-family: 'Playfair Display';">Expert Plant Care</h2>
+            <p>We don't just sell plants; we help them thrive in your home.</p>
+            <button class="btn-primary" style="background: transparent; border: 1px solid var(--primary-emerald); color: var(--primary-emerald);">Learn More</button>
+        </div>
+        <div style="flex: 1;">
+            <img src="https://images.unsplash.com/photo-1520412099551-62b6bafeb5bb?auto=format&fit=crop&w=600" style="width: 100%;">
+        </div>
     </div>
 </section>
 

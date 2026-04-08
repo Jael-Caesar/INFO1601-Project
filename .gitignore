@@ -1,3 +1,5 @@
 .env
 node_modules/
 DS_Store
+# Ignore the config file that contains API keys
+js/config.js

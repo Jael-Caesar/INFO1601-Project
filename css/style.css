@@ -38,7 +38,7 @@ nav{
 }
 
 nav h1{
-    font-size:24px;
+    font-size: 20px;
 }
 
 nav ul{
@@ -55,6 +55,13 @@ nav a{
 
 nav a:hover{
     opacity:0.8;
+}
+
+nav .links{
+    display:flex;
+    gap:40px;
+    justify-content: left;
+    align-items: center;
 }
 
 .hero{

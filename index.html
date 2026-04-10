@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | Aqua Fern Boutique</title>
+    <title>Aqua Fern Boutique</title>
 </head>
 
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/login-signup.css">
-
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Montserrat&display=swap" rel="stylesheet">
 
 <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-app.js"></script>
@@ -18,7 +16,7 @@
 <body>
 
 <nav>
-   <div class="logo">
+    <div class="logo">
         <a href="index.html"><img src="images/a.png" alt="logo"></a>
         <h3>Aqua Fern Boutique</h3>
     </div>
@@ -28,47 +26,106 @@
         <li><a href="aboutus.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="log-in.html">Log-in</a></li>
-        <li><a href="sign-up.html">Sign-Up</a></li>
+        <li><a href="sign-up.html">Sign-up</a></li>
+    </ul>
     </ul>
 </nav>
 
-<section class="contact">
-  <h2>Welcome Back🌿</h2>
-  <p>Login To Your Account</p>
+<section class="hero">
+  <div class="hero-text">
+    <h1>Home-Ready Plants Delivered</h1>
+    <p>Beautiful, healthy plants shipped directly to your door with simple care instructions.</p>
+    <button class="btn"><a href="shop.html">Shop Plants</a></button>
+  </div>
 
-  <div class="contact-box">
-    <form>
-      <input type="text" placeholder="Full Name" required>
-      <input type="email" placeholder="Email" required>
-      <input type="password" placeholder="Password" required>
-      <button class="btn"><a href="index.html">Log In</button>
-    </form>
+    <img src="images/preview.png">
+</section>
 
-    <div class="extra">
-      <p>Account does not exist? <a href="sign-up.html">Sign Up</a></p>
-    </div>
+<!-- CATEGORIES -->
+<section class="categories">
+  <h2>Shop by Category</h2>
+  <div class="cat-grid">
+    <div class="cat">Easy Care</div>
+    <div class="cat">Pet Friendly</div>
+    <div class="cat">Large Plants</div>
+    <div class="cat">Low Light</div>
   </div>
 </section>
 
+<!-- PRODUCTS -->
+<section class="products">
+  <h2>Best Sellers</h2>
+
+  <div class="product-grid">
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1463320726281-696a485928c7">
+      <div class="card-body">
+        <h3>Monstera Deliciosa</h3>
+        <p class="price">$45</p>
+        <button class="btn">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1509423350716-97f9360b4e09">
+      <div class="card-body">
+        <h3>Snake Plant</h3>
+        <p class="price">$30</p>
+        <button class="btn">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1497250681960-ef046c08a56e">
+      <div class="card-body">
+        <h3>Peace Lily</h3>
+        <p class="price">$35</p>
+        <button class="btn">Add to Cart</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits">
+  <div class="benefit">
+    <h3>🌿 Farm Fresh</h3>
+    <p>Plants shipped directly from growers.</p>
+  </div>
+
+  <div class="benefit">
+    <h3>📦 Safe Delivery</h3>
+    <p>Carefully packaged for healthy arrival.</p>
+    <button class="btn"><a href="aboutus.html">More About Us</a></button>
+  </div>
+
+  <div class="benefit">
+    <h3>💬 Plant Support</h3>
+    <p>Expert care tips included with every order.</p>
+  </div>
+
+</section>
 
 <footer>
+
     <div class="logo">
         <a href="index.html"><img src="images/a.png" alt="logo"></a>
     </div>
 
-    <p>© 2026 Aqua Fern Boutique — Home-Ready Plants Delivered</p>
+  <p>© 2026 Aqua Fren Boutique — Home-Ready Plants Delivered</p>
 
-    <hr class="footer-line">
+  <hr class="footer-line">
 
-    <div class="socials">
-        <a href="https://instagram.com"><img src="images/instagram.png"></a>
-        <a href="https://tiktok.com"><img src="images/tiktok.png"></a>
-        <a href="https://pinterest.com"><img src="images/pinterest.png"></a>
-        <a href="https://wa.me/1234567890"><img src="images/whatsapp.png"></a>
-        <a href="https://facebook.com"><img src="images/facebook.png"></a>
-    </div>
+  <div class="socials">
+    <a href="https://instagram.com"><img src="images/instagram.png"></a>
+    <a href="https://tiktok.com"><img src="images/tiktok.png"></a>
+    <a href="https://pinterest.com"><img src="images/pinterest.png"></a>
+    <a href="https://wa.me/1234567890"><img src="images/whatsapp.png"></a>
+    <a href="https://facebook.com"><img src="images/facebook.png"></a>
+  </div>
 </footer>
-
 
 </body>
 </html>

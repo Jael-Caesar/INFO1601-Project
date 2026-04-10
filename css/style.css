@@ -335,14 +335,15 @@ footer .logo {
 
 /* ABOUT SECTION */
 .about {
-  padding: 80px 20px;
-  text-align: center;
-  background: #f5f0dd;
+    padding: 80px 20px;
+    text-align: center;
+    background: #f5f0dd;
+    border-bottom: 3px solid #a18b0e;
 }
 
 .about h2 {
-  color: #0f4621;
-  margin-bottom: 20px;
+    color: #0f4621;
+    margin-bottom: 20px;
 }
 
 .about p {

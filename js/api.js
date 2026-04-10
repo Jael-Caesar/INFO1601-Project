@@ -1,36 +1,53 @@
 import { CONFIG } from './config.js';
+let currentPage = 1;
+let lastPage = 1;
 
-// Updated to v2 based on your link
+
 const API_BASE = `https://perenual.com/api/v2/species-list?`;
 
 // Function to fetch plants
 // Added page and hardiness as parameters with default values
-export async function getPlantData(searchQuery = '', page = 3, hardiness = '4-8') {
+export async function getPlantData(searchQuery = '', page = 1) {
     try {
-        // Build the URL dynamically
-        let url = `${API_BASE}page=${page}&hardiness=${hardiness}&key=${CONFIG.PERENUAL_KEY}`;
+        currentPage = page; // Update our local tracker
+        let url = `${API_BASE}page=${page}&key=${CONFIG.PERENUAL_KEY}`;
         
-        // If the user is searching, add the 'q' parameter
-        if (searchQuery) {
-            url += `&q=${searchQuery}`;
-        }
-
         const response = await fetch(url);
-        if (!response.ok) throw new Error(`API Error: ${response.status}`);
-        
         const json = await response.json();
         
-        // Perenual v2 returns data in a 'data' array
-        renderPlants(json.data);
+        // Use the meta-data from the JSON
+        lastPage = json.last_page; 
+        updatePaginationUI(json);
         
-        // Optional: Update a page counter in your UI
-        const pageLabel = document.getElementById('current-page-display');
-        if (pageLabel) pageLabel.innerText = `Viewing Page ${json.current_page}`;
-
+        renderPlants(json.data);
     } catch (err) {
         console.error("Aqua Fern Error:", err);
     }
 }
+
+function updatePaginationUI(meta) {
+    const info = document.getElementById('page-info');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+
+    if (info) {
+        // Uses the current_page and last_page from your JSON
+        info.innerText = `Page ${meta.current_page} of ${meta.last_page}`;
+    }
+
+    // Professional touch: Disable buttons if there's no page to go to
+    prevBtn.disabled = (meta.current_page === 1);
+    nextBtn.disabled = (meta.current_page === meta.last_page);
+}
+
+// Event Listeners for the buttons
+document.getElementById('prev-btn').addEventListener('click', () => {
+    if (currentPage > 1) getPlantData('', currentPage - 1);
+});
+
+document.getElementById('next-btn').addEventListener('click', () => {
+    if (currentPage < lastPage) getPlantData('', currentPage + 1);
+});
 
 // Function to build the UI cards
 function renderPlants(plants) {

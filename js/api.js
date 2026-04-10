@@ -64,10 +64,10 @@ function renderPlants(plants) {
         const img = plant.default_image ? plant.default_image.regular_url : 'assets/placeholder.png';
         
         shopContainer.innerHTML += `
-            <div class="plant-card">
+            <div class="products">
                 <img src="${img}" alt="${plant.common_name}">
-                <div class="card-content">
-                    <h3>${plant.common_name}</h3>
+                <div class="product-grid">
+                    <h2>${plant.common_name}</h2>
                     <p class="scientific-name"><em>${plant.scientific_name[0]}</em></p>
                     <p>Price: $${(Math.random() * 20 + 5).toFixed(2)}</p> <!-- Random price for demo -->    
                     <div class="card-buttons">

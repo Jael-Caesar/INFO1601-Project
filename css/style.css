@@ -203,6 +203,16 @@ nav .logo a{
   text-align:center;
 }
 
+.card-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+    color:#f0eccd;
+    background:#0f4621;
+    background-position: right center;
+}
+
 .price{
     color:#1f5f3b;
     font-weight:600;

@@ -42,9 +42,9 @@ nav{
 }
 
 nav ul{
-    list-style:none;
-    display:flex;
-    gap:40px;
+    list-style: none;
+    display: flex;
+    gap: 20px;
 }
 
 nav a{

@@ -2,7 +2,7 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 body{
@@ -160,10 +160,12 @@ nav .logo a{
 .products{
     padding:60px;
     background:#fafafa;
+    border: #a18b0e solid 1px;
 }
 
 .products h2{
-  text-align:center;
+  text-align:left;
+  word-wrap: break-word;;
   margin-bottom:40px;
 }
 

@@ -2,258 +2,380 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-:root {
-    --primary-emerald: #013730;
-    --aqua-bg: #bce0da; /* Very light aqua wash */
-    --soft-pink: #f8d4e0;
-    --text-main: #6b0037;
-    --max-width: 1200px;
-}
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family:'Poppins',sans-serif;
 }
 
 body{
-    background:#f4f7f4;
-    color:#333;
+    background:#ffffff;
+    color:#222;
 }
 
+/* ===== NAVBAR ===== */
 nav{
-    background:#004d3c;
-    color:white;
-    padding: 50px;
-    gap: 100px;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    vertical-align: middle;
-
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 20px;
+    border-bottom:1px solid #eee;
+    background-image: linear-gradient(to right, #0f4621 15%, #1f530a 40%,#0f4621 100% );
+    border-bottom: 5px solid #a18b0e;
 }
 
-nav h1{
-    font-size: 20px;
+.logo{
+    font-size:20px;
+    color:#f0eccd;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    border-radius: 50px;
+}
+
+.logo h3 {
+    margin: 0;
 }
 
 nav ul{
     list-style:none;
     display:flex;
-    gap:20px;
+    gap:40px;
 }
 
 nav a{
     text-decoration:none;
-    color:white;
-    font-weight:bold;
+    color:#f0eccd;
+    font-weight:500;
+    font-size: 18px;
+    padding: 15px;
+    border-radius: 25px;
 }
 
 nav a:hover{
-    opacity:0.8;
+    color:#e0cca6;
+    transform:translateY(-6px);
+    border-radius: 25px;
+    transition:0.5s;
+    border-bottom: 3px solid #a18b0e;
 }
 
-nav .links{
-    display:flex;
-    gap:40px;
-    justify-content: left;
-    align-items: center;
+nav .logo a{
+    background: none;
+    border: 0;
 }
 
 .hero{
-    height:70vh;
-    background:url("https://images.unsplash.com/photo-1501004318641-b39e6451bec6")
-    center/cover no-repeat;
     display:flex;
-    justify-content:center;
     align-items:center;
+    justify-content: space-between;
+    padding:80px 80px;
+    height:70vh;
+    background:#f5f0dd;
+}
+
+.hero img {
+    width: 600px;
+    height: 500px;
+    transition: 0.3s;
+    padding-right: 100px;
+}
+
+.hero-text{
+    max-width:700px;
+    padding-left: 100px;
+}
+
+.hero-text h1{
+    font-size:58px;
+    margin-bottom:20px;
+    color: #0f4621;
+}
+
+.hero-text p{
+    color:#666;
+    margin-bottom:25px;
+}
+
+.btn {
+    margin: 10px;
+    padding: 15px 45px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 800;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color:#f0eccd;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    cursor:pointer;
+    background-image: linear-gradient(to right, #0f4621 0%, #439622 51%, #0f4621 100%);
+}
+
+.btn:hover{
+    background:#0f4621;
+    background-position: right center;
+}
+
+/* ===== CATEGORY SECTION ===== */
+.categories{
+    padding:60px;
     text-align:center;
-    color:white;
+    background-color: #1f5f3b;
+    border-bottom: 5px solid #a18b0e;
+    border-top: 5px solid #a18b0e;
 }
 
-.hero h2{
-    font-size:48px;
-    background:rgba(0,0,0,0.4);
-    padding:20px;
-    border-radius:10px;
-}
-
-.products{
-    padding:50px 40px;
-}
-
-.products h2{
-    text-align:center;
+.categories h2{
     margin-bottom:30px;
-    color:#2f6f4e;
+    color:#e0cca6;
 }
 
-.grid{
+.cat-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:50px;
 }
 
-.card{
-    background:white;
+.cat{
+    font-weight: 700;
+    color: #439622;
+    padding:40px;
     border-radius:10px;
-    overflow:hidden;
-    box-shadow:0 4px 12px rgba(0,0,0,0.1);
     transition:0.3s;
+    background-color: white;
 }
 
-.card:hover{
+.cat:hover{
     transform:translateY(-5px);
 }
 
-.card img{
-    width:100%;
-    height:220px;
-    object-fit:cover;
+/* ===== PRODUCTS ===== */
+.products{
+    padding:60px;
+    background:#fafafa;
 }
 
-.card-content{
-    padding:15px;
-    text-align:center;
+.products h2{
+  text-align:center;
+  margin-bottom:40px;
+}
+
+.product-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+}
+
+.card{
+  background-color:#ffffff;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 4px 12px rgba(0,0,0,0.08);
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-6px);
+}
+
+.card img{
+  width:100%;
+  height:250px;
+  object-fit:cover;
+  border-radius: 15px;
+}
+
+.card-body{
+  padding:20px;
+  text-align:center;
 }
 
 .price{
-    color:#2f6f4e;
-    font-weight:bold;
+    color:#1f5f3b;
+    font-weight:600;
     margin:10px 0;
 }
 
-button{
-    background:#2f6f4e;
-    color:white;
-    border:none;
-    padding:10px 15px;
-    border-radius:5px;
-    cursor:pointer;
-}
-
-button:hover{
-    background:#24563d;
-}
-
-.about{
-    background:#e7efe9;
-    padding:50px 40px;
+/* ===== BENEFITS ===== */
+.benefits{
+    padding:70px 60px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
     text-align:center;
+    border-top: 5px solid #a18b0e;
+    background-color: #f5f0dd;
 }
 
-.about h2{
-    margin-bottom:15px;
-    color:#2f6f4e;
+.benefit h3{
+    margin-bottom: 20px;
+    color:#1f5f3b;
 }
 
+.benefit .btn{
+    margin-top: 30px;
+}
+
+.btn a{
+    color:#f0eccd;
+    text-decoration: none;
+}
+
+/* ===== FOOTER ===== */
 footer{
-    background:#14695b;
-    color:white;
+    background-image: linear-gradient(to right, #0f4621 15%, #1f530a 40%,#0f4621 100% );
+    color:#f0eccd;
     text-align:center;
-    padding:20px;
-    margin-top:30px;
+    padding:25px;
+    border-top: 5px solid #a18b0e;
 }
 
-body {
-    background-color: white; /* The Sill uses white backgrounds for products */
-    color: var(--text-main);
-}
-
-/* 1. Sleeker Nav */
-nav {
-    background: white; /* Clean white nav like The Sill */
-    color: var(--primary-emerald);
-    padding: 15px 5%;
-    border-bottom: 1px solid #eee;
-    display: flex;
-    justify-content: space-between;
-    position: sticky;
-    top: 0;
-}
-
-nav a {
-    color: var(--primary-emerald) !important;
-    font-size: 13px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-}
-
-/* 2. Hero Section (Full Width) */
-.hero {
-    height: 80vh;
-    background: var(--aqua-bg); /* Use aqua here instead of just an image */
-    display: flex;
-    align-items: center;
+footer .logo {
     justify-content: center;
-    text-align: center;
-    padding: 0 10%;
+    margin-bottom: 20px;
 }
 
-.hero h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3.5rem;
-    color: var(--primary-emerald);
+.footer-line{
+    margin:35px auto;
+    width:80%;
+    border:0;
+    height:1px;
+    background:#ccc; /* line color */
 }
 
-/* 3. The Product Grid Flow */
-.container {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 80px 20px; /* Large spacing between sections */
+.socials{
+  margin-top:15px;
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns like The Sill */
-    gap: 40px;
+/* IMAGE ICON STYLE */
+.socials img{
+  width:45px;       
+  height:45px;
+  margin:0 10px;
+  transition:0.3s;
 }
 
-.card {
-    border: none; /* Remove borders for that high-end look */
-    background: transparent;
-    text-align: left; /* Left align text like The Sill */
+
+.socials img:hover{
+  transform:scale(1.2);
+  filter: brightness(0) saturate(100%) invert(23%) sepia(25%) saturate(500%) hue-rotate(90deg);
 }
 
-.card img {
-    width: 100%;
-    aspect-ratio: 1 / 1.2; /* Taller, editorial image ratio */
-    object-fit: cover;
-    background-color: #f9f9f9; /* Light grey/aqua placeholder */
-    transition: opacity 0.3s;
+/* CONTACT PAGE */
+.contact {
+  padding: 80px 10px;
+  text-align: center;
+  background: #f5f0dd;
 }
 
-.card img:hover {
-    opacity: 0.9;
+.contact h2 {
+  color: #0f4621;
+  margin-bottom: 10px;
+  font-size: 35px;
 }
 
-.card-content {
-    padding: 15px 0;
+.contact-box {
+  max-width: 500px;
+  margin: 30px auto;
+  background: white;
+  padding: 60px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  background: rgba(255, 255, 255, 0.2); /* slightly more visible */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 
-.card h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
-    margin-bottom: 5px;
+.contact-box input,
+.contact-box textarea {
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 15px;
+  border: 2px solid #a18b0e;
+  border-radius: 15px;
+  box-shadow: 0 10px 15px rgba(0,0,0,0.1);
 }
 
-.price {
-    font-size: 0.9rem;
-    color: #666;
-    letter-spacing: 0.5px;
+.contact .btn a{
+    color: #f0eccd;
 }
 
-/* Call to Action Buttons */
-.btn-primary {
-    background: var(--primary-emerald);
-    color: white;
-    border-radius: 0; /* Square buttons look more professional/modern */
-    padding: 15px 30px;
-    text-transform: uppercase;
-    font-size: 12px;
-    letter-spacing: 2px;
+.contact a{
+    color: #0f4621;
+}
+
+.contact p{
+    margin-top: 10px;
+}
+
+/* ABOUT SECTION */
+.about {
+  padding: 80px 20px;
+  text-align: center;
+  background: #f5f0dd;
+}
+
+.about h2 {
+  color: #0f4621;
+  margin-bottom: 20px;
+}
+
+.about p {
+  max-width: 700px;
+  margin: 10px auto;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* TEAM SECTION */
+.team {
+  padding: 80px 20px;
+  text-align: center;
+  background: #ffffff;
+}
+
+.team h2 {
+  color: #0f4621;
+  margin-bottom: 40px;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+}
+
+.team-card {
+  background: #f5f0dd;
+  padding: 20px;
+  border-radius: 15px;
+  transition: 0.3s;
+}
+
+.team-card:hover {
+  transform: translateY(-8px);
+}
+
+.team-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.team-card h3 {
+  color: #1f5f3b;
+  margin-bottom: 5px;
+}
+
+.team-card p {
+  color: #666;
 }

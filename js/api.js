@@ -1,14 +1,14 @@
 import { CONFIG } from './config.js';
 
 // Updated to v2 based on your link
-const API_BASE = `https://perenual.com/api/v2/species-list?key=${CONFIG.PERENUAL_KEY}`;
+const API_BASE = `https://perenual.com/api/v2/species-list?`;
 
 // Function to fetch plants
 // Added page and hardiness as parameters with default values
-export async function getPlantData(searchQuery = '', page = 1, hardiness = '4-8') {
+export async function getPlantData(searchQuery = '', page = 3, hardiness = '4-8') {
     try {
         // Build the URL dynamically
-        let url = `${API_BASE}&page=${page}&hardiness=${hardiness}`;
+        let url = `${API_BASE}page=${page}&hardiness=${hardiness}&key=${CONFIG.PERENUAL_KEY}`;
         
         // If the user is searching, add the 'q' parameter
         if (searchQuery) {
@@ -34,7 +34,7 @@ export async function getPlantData(searchQuery = '', page = 1, hardiness = '4-8'
 
 // Function to build the UI cards
 function renderPlants(plants) {
-    const shopContainer = document.querySelector('#shop-grid');
+    const shopContainer = document.querySelector('#plant-list');
     if (!shopContainer) {
         console.error("Shop grid container not found");
         return;

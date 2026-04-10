@@ -164,45 +164,46 @@ nav .logo a{
 }
 
 .products h2{
-  text-align:left;
-  word-wrap: break-word;;
-  margin-bottom:40px;
+    text-align:left;
+    word-wrap: break-word;;
+    margin-bottom:40px;
 }
 
 .product-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:25px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
 }
 
 .product-grid img{
-  width:auto;
-  height:120px;
-  object-fit:cover;
+    width:auto;
+    height:120px;
+    object-fit:cover;
 }
 
 .card{
-  background-color:#ffffff;
-  border-radius:12px;
-  overflow:hidden;
-  box-shadow:0 4px 12px rgba(0,0,0,0.08);
-  transition:0.3s;
+    background-color:#ffffff;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+    transition:0.3s;
 }
 
 .card:hover{
-  transform:translateY(-6px);
+    transform:translateY(-6px);
 }
 
 .card img{
-  width:100%;
-  height:250px;
-  object-fit:cover;
-  border-radius: 15px;
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    border-radius: 15px;
+    padding: 20px;
 }
 
 .card-body{
-  padding:20px;
-  text-align:center;
+    padding:20px;
+    text-align:center;
 }
 
 .card-buttons {

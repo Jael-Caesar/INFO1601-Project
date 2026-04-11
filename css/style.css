@@ -152,6 +152,8 @@ nav .logo a{
     transition:0.3s;
     background-color: white;
     box-shadow:0 4px 12px rgba(0, 0, 0, 0.253);
+    border: none;      
+    cursor: pointer;
 }
 
 .cat:hover{
@@ -477,4 +479,14 @@ footer .logo {
     padding: 15px;
     overflow-y: auto;
     box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+}
+/* ===== SHOP FILTER BUTTONS (smaller version of .cat) ===== */
+.shop-filters .cat {
+    padding: 15px 20px;   /* smaller than 40px */
+    font-size: 14px;
+}
+
+/* Optional: tighter grid spacing */
+.shop-filters.cat-grid {
+    gap: 20px;
 }

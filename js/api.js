@@ -1,13 +1,55 @@
 import { CONFIG } from './config.js';
 let currentPage = 1;
 let lastPage = 1;
-
+let currentFilter = '';
+let currentSearch = '';
 import { addToCart } from "cart.js";
 
 const API_BASE = `https://perenual.com/api/v2/species-list?`;
 
+window.applyFilter = function(filter) {
+    currentFilter = filter;
+    currentPage = 1;
+
+    document.querySelectorAll('.shop-filters .cat').forEach(btn => {
+        btn.classList.remove('active');
+    });
+
+    event.target.classList.add('active');
+
+    getPlantData('', 1);
+};
 // Function to fetch plants
 // Added page and hardiness as parameters with default values
+
+export async function getPlantData(searchQuery = '', page = 1) {
+    try {
+        currentPage = page;
+        currentSearch = searchQuery;
+
+        let url = `${API_BASE}page=${page}&key=${CONFIG.PERENUAL_KEY}&q=${searchQuery}`;
+
+        if (currentFilter === 'lowlight') {
+            url += '&sunlight=low_light';
+        }
+
+        if (currentFilter === 'easy') {
+            url += '&watering=average';
+        }
+
+        const response = await fetch(url);
+        const json = await response.json();
+
+        lastPage = json.last_page;
+        updatePaginationUI(json);
+        renderPlants(json.data);
+
+    } catch (err) {
+        console.error("Aqua Fern Error:", err);
+    }
+}
+
+/*
 export async function getPlantData(searchQuery = '', page = 1) {
     try {
         currentPage = page; // Update our local tracker
@@ -25,6 +67,7 @@ export async function getPlantData(searchQuery = '', page = 1) {
         console.error("Aqua Fern Error:", err);
     }
 }
+    */
 
 function updatePaginationUI(meta) {
     const info = document.getElementById('page-info');
@@ -42,12 +85,23 @@ function updatePaginationUI(meta) {
 }
 
 // Event Listeners for the buttons
-document.getElementById('prev-btn').addEventListener('click', () => {
+/*document.getElementById('prev-btn').addEventListener('click', () => {
     if (currentPage > 1) getPlantData('', currentPage - 1);
 });
 
 document.getElementById('next-btn').addEventListener('click', () => {
     if (currentPage < lastPage) getPlantData('', currentPage + 1);
+});*/
+document.getElementById('prev-btn').addEventListener('click', () => {
+    if (currentPage > 1) {
+        getPlantData(currentSearch, currentPage - 1);
+    }
+});
+
+document.getElementById('next-btn').addEventListener('click', () => {
+    if (currentPage < lastPage) {
+        getPlantData(currentSearch, currentPage + 1);
+    }
 });
 
 // Function to build the UI cards
@@ -133,7 +187,18 @@ async function loadPlantDetails() {
     }
 }
 
-getPlantData(); // Initial fetch to populate the page with plants on load
+//getPlantData(); // Initial fetch to populate the page with plants on load
+//replace getplantData
+window.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
 
+    currentFilter = params.get('filter') || '';
+
+    getPlantData();
+});
+
+window.filterByCategory = function(category) {
+    window.location.href = `shop.html?filter=${category}`;
+};
 // Call the function so it runs when details.html opens
 loadPlantDetails();

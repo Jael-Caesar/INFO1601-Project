@@ -10,7 +10,7 @@ const API_BASE = `https://perenual.com/api/v2/species-list?`;
 export async function getPlantData(searchQuery = '', page = 1) {
     try {
         currentPage = page; // Update our local tracker
-        let url = `${API_BASE}page=${page}&key=${CONFIG.PERENUAL_KEY}`;
+        let url = `${API_BASE}page=${page}&indoor=true&key=${CONFIG.PERENUAL_KEY}`;
         
         const response = await fetch(url);
         const json = await response.json();

@@ -69,7 +69,7 @@ function renderPlants(plants) {
                 <div class="product-grid">
                     <h2>${plant.common_name}</h2>
                     <p class="scientific-name"><em>${plant.scientific_name[0]}</em></p>
-                    <p>Price: $${(Math.random() * 20 + 5).toFixed(2)}</p> <!-- Random price for demo --> 
+                    <p>Price: $ 50.00 TTD</p>
                     <button class="btn" onclick="saveToWishlist(${plant.id}, '${plant.common_name}')">💚 Wishlist</button> 
                     <a href="detail.html?id=${plant.id}" class="btn-details">View Details</a>
                 </div>

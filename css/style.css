@@ -451,3 +451,28 @@ footer .logo {
 .details-info-box {
     flex: 1;
 }
+
+.close-cart {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+
+    color: black;
+}
+
+#cart-panel {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background: white;
+    padding: 15px;
+    overflow-y: auto;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+}

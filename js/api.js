@@ -2,6 +2,7 @@ import { CONFIG } from './config.js';
 let currentPage = 1;
 let lastPage = 1;
 
+import { addToCart } from "cart.js";
 
 const API_BASE = `https://perenual.com/api/v2/species-list?`;
 
@@ -71,6 +72,11 @@ function renderPlants(plants) {
                     <p class="scientific-name"><em>${plant.scientific_name[0]}</em></p>
                     <p>Price: $ 50.00 TTD</p>
                     <button class="btn" onclick="saveToWishlist(${plant.id}, '${plant.common_name}')">💚 Wishlist</button> 
+
+                    <button class="btn" onclick="addToCart(${plant.id}, '${plant.common_name}', '${img}')">
+                     Add to Cart
+                     </button>
+
                     <a href="details.html?id=${plant.id}" class="btn-details">View Details</a>
                 </div>
             </div>

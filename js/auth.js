@@ -24,28 +24,11 @@ const auth = getAuth(app);
 const loginForm = document.querySelector('#login-form');
 const signupForm = document.querySelector('#signup-form');
 
-// 4. LOGIN LOGIC
-if (loginForm) {
-    loginForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const email = loginForm.querySelector('.email-field').value;
-        const password = loginForm.querySelector('.password-field').value;
-
-        try {
-            await signInWithEmailAndPassword(auth, email, password);
-            sessionStorage.setItem('isLoggedIn', 'true');
-            window.location.href = 'shop.html'; 
-        } catch (error) {
-            console.error("Login error:", error);
-            alert("Login failed: " + error.message);
-        }
-    });
-}
-
-// 5. SIGN-UP LOGIC
+// 4. SIGN-UP LOGIC
 if (signupForm) {
     signupForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
+        e.preventDefault(); // This is the line that stops the refresh!
+        
         const email = signupForm.querySelector('.email-field').value;
         const password = signupForm.querySelector('.password-field').value;
 
@@ -56,6 +39,25 @@ if (signupForm) {
         } catch (error) {
             console.error("Signup error:", error);
             alert("Sign-up failed: " + error.message);
+        }
+    });
+}
+
+// 5. LOGIN LOGIC
+if (loginForm) {
+    loginForm.addEventListener('submit', async (e) => {
+        e.preventDefault(); // Stops the refresh!
+        
+        const email = loginForm.querySelector('.email-field').value;
+        const password = loginForm.querySelector('.password-field').value;
+
+        try {
+            await signInWithEmailAndPassword(auth, email, password);
+            sessionStorage.setItem('isLoggedIn', 'true');
+            window.location.href = 'shop.html'; 
+        } catch (error) {
+            console.error("Login error:", error);
+            alert("Login failed: " + error.message);
         }
     });
 }

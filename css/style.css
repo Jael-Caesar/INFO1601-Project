@@ -413,7 +413,7 @@ footer .logo {
 
 .btn-secondary {
     background: transparent;
-    color:#f0eccd;
+    color:#1f5f3b;
     box-shadow: 0 0 20px #eee;
     padding: 8px 16px;
     cursor: pointer;
@@ -423,4 +423,31 @@ footer .logo {
     color:#f0eccd;
     box-shadow: 0 0 20px #eee;
     cursor: not-allowed;
+}
+
+.details-container {
+    padding: 80px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.details-wrapper {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+}
+
+.details-image-box {
+    flex: 1;
+}
+
+.details-image-box img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(15, 70, 33, 0.2);
+    border: 5px solid #0f4621; /* Dark Green Border */
+}
+
+.details-info-box {
+    flex: 1;
 }

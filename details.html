@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Plant Details | Aqua Fern Boutique</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body style="background-color: #f5f0dd;"> <main class="details-container">
+    <nav>
+        <div class="logo">
+            <a href="index.html"><img src="images/a.png" alt="logo"></a>
+            <h3>Aqua Fern Boutique</h3>
+        </div>
+
+        <ul>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="aboutus.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="log-in.html">Log-in</a></li>
+            <li><a href="sign-up.html">Sign-up</a></li>
+        </ul>
+        </ul>
+    </nav>
+    <div class="details-wrapper">
+        <div class="details-image-box">
+            <img id="plant-img" src="assets/placeholder.png" alt="Loading...">
+        </div>
+
+        <div class="details-info-box">
+            <h1 id="plant-name">Loading Plant...</h1>
+            <p id="plant-scientific" class="scientific-italics"></p>
+            
+            <div class="care-grid">
+                <div class="care-item"><strong>Watering:</strong> <span id="plant-watering">--</span></div>
+                <div class="care-item"><strong>Sunlight:</strong> <span id="plant-sun">--</span></div>
+                <div class="care-item"><strong>Care Level:</strong> <span id="plant-care">--</span></div>
+                <div class="care-item"><strong>Growth:</strong> <span id="plant-growth">--</span></div>
+            </div>
+
+            <h3>Description</h3>
+            <p id="plant-description"></p>
+
+            <button class="btn-emerald" id="add-wishlist-btn">Add to Wishlist ♥</button>
+            <a href="shop.html" class="back-link">← Back to Shop</a>
+        </div>
+    </div>
+</main>
+
+<script type="module" src="js/api.js"></script>
+<script type="module" src="js/auth.js"></script>
+
+<footer>
+
+    <div class="logo">
+        <a href="index.html"><img src="images/a.png" alt="logo"></a>
+    </div>
+
+  <p>© 2026 Aqua Fern Boutique — Home-Ready Plants Delivered</p>
+
+  <hr class="footer-line">
+
+  <div class="socials">
+        <a href="https://instagram.com"><img src="https://cdn-icons-png.flaticon.com/128/1384/1384015.png"></a>
+        <a href="https://tiktok.com"><img src="https://cdn-icons-png.flaticon.com/128/3116/3116491.png"></a>
+        <a href="https://pinterest.com"><img src="https://cdn-icons-png.flaticon.com/128/2175/2175205.png"></a>
+        <a href="https://wa.me/1234567890"><img src="https://cdn-icons-png.flaticon.com/128/733/733641.png"></a>
+        <a href="https://facebook.com"><img src="https://cdn-icons-png.flaticon.com/128/2168/2168281.png"></a>
+  </div>
+</footer>
+</body>
+</html>

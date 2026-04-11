@@ -10,7 +10,7 @@ const API_BASE = `https://perenual.com/api/v2/species-list?`;
 export async function getPlantData(searchQuery = '', page = 1) {
     try {
         currentPage = page; // Update our local tracker
-        let url = `${API_BASE}page=${page}&indoor=true&key=${CONFIG.PERENUAL_KEY}`;
+        let url = `${API_BASE}page=${page}&key=${CONFIG.PERENUAL_KEY}`;
         
         const response = await fetch(url);
         const json = await response.json();
@@ -71,11 +71,45 @@ function renderPlants(plants) {
                     <p class="scientific-name"><em>${plant.scientific_name[0]}</em></p>
                     <p>Price: $ 50.00 TTD</p>
                     <button class="btn" onclick="saveToWishlist(${plant.id}, '${plant.common_name}')">💚 Wishlist</button> 
-                    <a href="detail.html?id=${plant.id}" class="btn-details">View Details</a>
+                    <button class="btn-details" onclick="getPlantDetails(${plant.id})">View Details</button>
                 </div>
             </div>
         `;
     });
+}
+
+async function getPlantDetails() {
+    // 1. Extract the ID from the URL (e.g., ?id=3000)
+    const urlParams = new URLSearchParams(window.location.search);
+    const plantId = urlParams.get('id');
+
+    if (!plantId) {
+        console.error("No plant ID found in URL");
+        return;
+    }
+
+    const API_URL = `https://perenual.com/api/v2/species/details/${plant.id}?key=${CONFIG.PERENUAL_KEY}`;
+
+    try {
+        const response = await fetch(API_URL);
+        const plant = await response.json();
+
+        // 2. Populate the HTML elements
+        document.getElementById('plant-img').src = plant.default_image?.regular_url || 'assets/placeholder.png';
+        document.getElementById('plant-name').innerText = plant.common_name;
+        document.getElementById('plant-scientific').innerText = plant.scientific_name[0];
+        document.getElementById('plant-description').innerText = plant.description || "No description available for this species.";
+        
+        // 3. Populate Care Info
+        document.getElementById('plant-watering').innerText = plant.watering || 'N/A';
+        document.getElementById('plant-sun').innerText = plant.sunlight?.join(', ') || 'N/A';
+        document.getElementById('plant-care').innerText = plant.care_level || 'N/A';
+        document.getElementById('plant-growth').innerText = plant.growth_rate || 'N/A';
+
+    } catch (error) {
+        console.error("Aqua Fern Details Error:", error);
+    }
+    open('details.html', '_blank'); // Open details in a new tab
 }
 
 getPlantData(); // Initial fetch to populate the page with plants on load

@@ -71,7 +71,7 @@ function renderPlants(plants) {
                     <p class="scientific-name"><em>${plant.scientific_name[0]}</em></p>
                     <p>Price: $ 50.00 TTD</p>
                     <button class="btn" onclick="saveToWishlist(${plant.id}, '${plant.common_name}')">💚 Wishlist</button> 
-                    <button class="btn-details" onclick="getPlantDetails(${plant.id})">View Details</button>
+                    <a href="details.html?id=${plant.id}" class="btn" target="_blank">View Details</a>
                 </div>
             </div>
         `;

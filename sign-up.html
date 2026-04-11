@@ -75,5 +75,26 @@
   <div id="cart-items"></div>
 </div>
 
+<script type="module">
+    import { loginUser } from './js/auth.js';
+
+    const loginForm = document.querySelector('#login-form');
+    if (loginForm) {
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = loginForm.querySelector('.email-field').value;
+            const password = loginForm.querySelector('.password-field').value;
+
+            try {
+                await loginUser(email, password);
+                sessionStorage.setItem('isLoggedIn', 'true');
+                window.location.href = 'shop.html';
+            } catch (error) {
+                alert("Login Error: " + error.message);
+            }
+        });
+    }
+</script>
+
 </body>
 </html>

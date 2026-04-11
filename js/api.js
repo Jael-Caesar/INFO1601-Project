@@ -71,8 +71,6 @@ function renderPlants(plants) {
                     <h2>${plant.common_name}</h2>
                     <p class="scientific-name"><em>${plant.scientific_name[0]}</em></p>
                     <p>Price: $ 50.00 TTD</p>
-                    <button class="btn" onclick="saveToWishlist(${plant.id}, '${plant.common_name}')">💚 Wishlist</button> 
-
                     <button class="btn" onclick="addToCart(${plant.id}, '${plant.common_name}', '${img}')">
                      Add to Cart
                      </button>

@@ -80,7 +80,7 @@ nav .logo a{
 
 .hero img {
     width: 600px;
-    height: 500px;
+    height: auto;
     transition: 0.3s;
     padding-right: 100px;
 }

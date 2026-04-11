@@ -6,25 +6,14 @@ import {
     signInWithEmailAndPassword 
 } from "https://www.gstatic.com/firebasejs/9.x.x/firebase-auth.js";
 
-// 1. Setup Firebase Configuration
-const firebaseConfig = {
-  apiKey: CONFIG.FIREBASE_CONFIG.apiKey,
-  authDomain: CONFIG.FIREBASE_CONFIG.authDomain,
-  projectId: CONFIG.FIREBASE_CONFIG.projectId,
-  storageBucket: CONFIG.FIREBASE_CONFIG.storageBucket,
-  messagingSenderId: CONFIG.FIREBASE_CONFIG.messagingSenderId,
-  appId: CONFIG.FIREBASE_CONFIG.appId
-};
-
-// 2. Initialize Firebase
-const app = initializeApp(firebaseConfig);
+const app = initializeApp(CONFIG.FIREBASE_CONFIG);
 const auth = getAuth(app);
 
-// 3. Select Forms
+// Select Forms
 const loginForm = document.querySelector('#login-form');
 const signupForm = document.querySelector('#signup-form');
 
-// 4. SIGN-UP LOGIC
+// SIGN-UP LOGIC
 if (signupForm) {
     signupForm.addEventListener('submit', async (e) => {
         e.preventDefault(); // This is the line that stops the refresh!
@@ -43,7 +32,7 @@ if (signupForm) {
     });
 }
 
-// 5. LOGIN LOGIC
+// LOGIN LOGIC
 if (loginForm) {
     loginForm.addEventListener('submit', async (e) => {
         e.preventDefault(); // Stops the refresh!

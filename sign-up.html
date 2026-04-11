@@ -76,21 +76,22 @@
 </div>
 
 <script type="module">
-    import { loginUser } from './js/auth.js';
+    import { registerUser } from './js/auth.js';
 
-    const loginForm = document.querySelector('#login-form');
-    if (loginForm) {
-        loginForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const email = loginForm.querySelector('.email-field').value;
-            const password = loginForm.querySelector('.password-field').value;
+    const signupForm = document.querySelector('#signup-form');
+    if (signupForm) {
+        signupForm.addEventListener('submit', async (e) => {
+            e.preventDefault(); // This is the magic line that stops the refresh
+            
+            const email = signupForm.querySelector('.email-field').value;
+            const password = signupForm.querySelector('.password-field').value;
 
             try {
-                await loginUser(email, password);
-                sessionStorage.setItem('isLoggedIn', 'true');
+                await registerUser(email, password);
+                alert("You're signed in! Welcome to the boutique.");
                 window.location.href = 'shop.html';
             } catch (error) {
-                alert("Login Error: " + error.message);
+                alert("Signup failed: " + error.message);
             }
         });
     }

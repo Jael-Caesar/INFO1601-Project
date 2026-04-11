@@ -100,8 +100,22 @@ async function loadPlantDetails() {
 
     try {
         console.log("Fetching details for ID:", plantId); // Check your console to see this!
+        /* DON'T FORGET TO UNCOMMENT THIS WHEN THE API KEY ISSUE IS RESOLVED
         const response = await fetch(API_URL);
         const plant = await response.json();
+        */
+
+        // ADD THIS "FAKE" DATA so you can keep styling:
+        const plant = {
+            common_name: "Test Plant (API PAUSED)",
+            scientific_name: ["Abies alba"],
+            description: "This is fake data to help me style while the API is on a break.",
+            watering: "Frequent",
+            sunlight: ["Full Sun"],
+            care_level: "Easy",
+            growth_rate: "High",
+            default_image: { regular_url: "https://via.placeholder.com/400" }
+        };
 
         // Now that the 'plant' variable exists, we can use it:
         document.getElementById('plant-img').src = plant.default_image?.regular_url || 'assets/placeholder.png';

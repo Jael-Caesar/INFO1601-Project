@@ -79,8 +79,8 @@ nav .logo a{
 }
 
 .hero img {
-    width: 600px;
-    height: 500px;
+    width: auto;
+    height: 400px;
     transition: 0.3s;
     padding-right: 100px;
 }
@@ -167,7 +167,9 @@ nav .logo a{
 
 .products h2{
     text-align:left;
-    word-wrap: break-word;;
+    overflow-wrap: break-word;
+    text-wrap: balance;
+    word-wrap: break-word;
     margin-bottom:40px;
 }
 

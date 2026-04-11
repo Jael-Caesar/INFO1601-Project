@@ -79,8 +79,8 @@ nav .logo a{
 }
 
 .hero img {
-    width: 600px;
-    height: auto;
+    width: auto;
+    height: 400px;
     transition: 0.3s;
     padding-right: 100px;
 }

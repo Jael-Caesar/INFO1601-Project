@@ -81,7 +81,7 @@
     const loginForm = document.querySelector('#login-form');
     if (loginForm) {
         loginForm.addEventListener('submit', async (e) => {
-            e.preventDefault(); // Stops the refresh
+            e.preventDefault();
             
             const name = loginForm.querySelector('input[placeholder="Full Name"]').value;
             const email = loginForm.querySelector('.email-field').value;

@@ -6,17 +6,14 @@ import { addToCart } from "cart.js";
 
 const API_BASE = `https://perenual.com/api/v2/species-list?`;
 
-// Function to fetch plants
-// Added page and hardiness as parameters with default values
 export async function getPlantData(searchQuery = '', page = 1) {
     try {
-        currentPage = page; // Update our local tracker
+        currentPage = page; 
         let url = `${API_BASE}page=${page}&key=${CONFIG.PERENUAL_KEY}`;
         
         const response = await fetch(url);
         const json = await response.json();
         
-        // Use the meta-data from the JSON
         lastPage = json.last_page; 
         updatePaginationUI(json);
         
@@ -32,16 +29,13 @@ function updatePaginationUI(meta) {
     const nextBtn = document.getElementById('next-btn');
 
     if (info) {
-        // Uses the current_page and last_page from your JSON
         info.innerText = `Page ${meta.current_page} of ${meta.last_page}`;
     }
 
-    // Professional touch: Disable buttons if there's no page to go to
     prevBtn.disabled = (meta.current_page === 1);
     nextBtn.disabled = (meta.current_page === meta.last_page);
 }
 
-// Event Listeners for the buttons
 document.getElementById('prev-btn').addEventListener('click', () => {
     if (currentPage > 1) getPlantData('', currentPage - 1);
 });
@@ -50,7 +44,6 @@ document.getElementById('next-btn').addEventListener('click', () => {
     if (currentPage < lastPage) getPlantData('', currentPage + 1);
 });
 
-// Function to build the UI cards
 function renderPlants(plants) {
     const shopContainer = document.querySelector('#plant-list');
     if (!shopContainer) {
@@ -61,7 +54,6 @@ function renderPlants(plants) {
     shopContainer.innerHTML = ''; 
 
     plants.forEach(plant => {
-        // Use regular_url for better quality if thumbnail is too small
         const img = plant.default_image ? plant.default_image.regular_url : 'assets/placeholder.png';
         
         shopContainer.innerHTML += `
@@ -82,24 +74,20 @@ function renderPlants(plants) {
     });
 }
 
-// --- Update this section at the bottom of api.js ---
 
 async function loadPlantDetails() {
     const urlParams = new URLSearchParams(window.location.search);
     const plantId = urlParams.get('id');
 
-    // If we aren't on the details page, or don't have an ID, stop here.
     if (!plantId || !document.getElementById('plant-name')) return;
 
     const API_URL = `https://perenual.com/api/v2/species/details/${plantId}?key=${CONFIG.PERENUAL_KEY}`;
 
     try {
-        console.log("Fetching details for ID:", plantId); // Check your console to see this!
-        // DON'T FORGET TO UNCOMMENT THIS WHEN THE API KEY ISSUE IS RESOLVED
+        console.log("Fetching details for ID:", plantId); 
         const response = await fetch(API_URL);
         const plant = await response.json();
 
-        // Now that the 'plant' variable exists, we can use it:
         document.getElementById('plant-img').src = plant.default_image?.regular_url || 'assets/placeholder.png';
         document.getElementById('plant-name').innerText = plant.common_name;
         document.getElementById('plant-scientific').innerText = plant.scientific_name[0];
@@ -115,7 +103,5 @@ async function loadPlantDetails() {
     }
 }
 
-getPlantData(); // Initial fetch to populate the page with plants on load
-
-// Call the function so it runs when details.html opens
+getPlantData();  
 loadPlantDetails();

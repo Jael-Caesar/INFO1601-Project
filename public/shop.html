@@ -31,6 +31,14 @@
 <section class="products">
   <h2>All Plants🌿</h2>
 
+    <div class="filter-container" style="margin-bottom: 20px; text-align: center;">
+        <button class="btn" onclick="window.applyFilter('indoor', 1)">🏠 Indoor</button>
+        <button class="btn" onclick="window.applyFilter('sunlight', 'full_sun')">☀️ Full Sun</button>
+        <button class="btn" onclick="window.applyFilter('watering', 'frequent')">💧 Thirsty Plants</button>
+        <button class="btn" onclick="window.applyFilter('poisonous', 0)">🐾 Pet Friendly</button>
+        <button class="btn" onclick="window.applyFilter('reset')">🔄 Reset All</button>
+    </div>
+
   <div class="product-grid" id="plant-list">
     <!-- Plants will load here -->
      <p id="loading">Loading plants...</p>

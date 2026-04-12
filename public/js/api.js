@@ -4,20 +4,28 @@ let lastPage = 1;
 
 const API_BASE = `https://perenual.com/api/v2/species-list?`;
 
-export async function getPlantData(searchQuery = '', page = 1) {
+export async function getPlantData(page = 1, filters = {}) {
     try {
         currentPage = page; 
         let url = `${API_BASE}page=${page}&key=${CONFIG.PERENUAL_KEY}`;
         
+        Object.keys(filters).forEach(key => {
+            if (filters[key] !== undefined && filters[key] !== null) {
+                url = `${API_BASE}page=${page}`;
+                url += `&${key}=${filters[key]}&key=${CONFIG.PERENUAL_KEY}`;
+            }
+        });
+
+        console.log("Fetching this URL:", url);
+
         const response = await fetch(url);
         const json = await response.json();
         
         lastPage = json.last_page; 
         updatePaginationUI(json);
-        
         renderPlants(json.data);
     } catch (err) {
-        console.error("Aqua Fern Error:", err);
+        console.error("Filter Fetch Error:", err);
     }
 }
 
@@ -112,3 +120,10 @@ if (plantId) {
 } else if (document.getElementById('plant-list')) {
     getPlantData();
 }
+
+window.applyFilter = (type, value) => {
+    const activeFilters = {};
+    activeFilters[type] = value;
+    
+    getPlantData(1, activeFilters);
+};

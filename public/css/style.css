@@ -354,12 +354,19 @@ footer .logo:hover {
 }
 
 .about h2 {
+    color: #1f530a;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.about h1 {
     color: #0f4621;
     margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .about p {
-    max-width: 700px;
+    max-width: 900px;
     margin: 10px auto;
     color: #555;
     line-height: 1.6;

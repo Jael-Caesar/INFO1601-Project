@@ -34,13 +34,18 @@ function updatePaginationUI(meta) {
     nextBtn.disabled = (meta.current_page === meta.last_page);
 }
 
-document.getElementById('prev-btn').addEventListener('click', () => {
-    if (currentPage > 1) getPlantData('', currentPage - 1);
-});
+const prevBtn = document.getElementById('prev-btn');
+const nextBtn = document.getElementById('next-btn');
 
-document.getElementById('next-btn').addEventListener('click', () => {
-    if (currentPage < lastPage) getPlantData('', currentPage + 1);
-});
+if (prevBtn && nextBtn) {
+    prevBtn.addEventListener('click', () => {
+        if (currentPage > 1) getPlantData('', currentPage - 1);
+    });
+
+    nextBtn.addEventListener('click', () => {
+        if (currentPage < lastPage) getPlantData('', currentPage + 1);
+    });
+};
 
 function renderPlants(plants) {
     const container = document.getElementById('plant-list');
@@ -68,32 +73,42 @@ function renderPlants(plants) {
     });
 }
 
+export async function loadPlantDetails(plantId) {
+    const API_URL = `https://perenual.com/api/v2/species/details/${plantId}?key=${CONFIG.PERENUAL_KEY}`;
+
+    try {
+        const response = await fetch(API_URL);
+        const plant = await response.json();
+        
+        renderDetails(plant); 
+
+    } catch (error) {
+        console.error("Error loading plant details:", error);
+    }
+}
+
 function renderDetails(plant) {
     const cleanData = (value, fallback) => {
-        if (!value || String(value).includes("Upgrade Plan")) {
-            return fallback;
-        }
+        if (!value || String(value).includes("Upgrade Plan")) return fallback;
         return value;
     };
 
     document.getElementById('plant-name').innerText = plant.common_name || "Boutique Plant";
+    document.getElementById('plant-img').src = plant.default_image?.regular_url || 'images/placeholder.png';
+    document.getElementById('plant-description').innerText = plant.description || "A lovely addition to your home.";
     
-    const sciName = Array.isArray(plant.scientific_name) ? plant.scientific_name[0] : plant.scientific_name;
-    document.getElementById('plant-scientific').innerText = sciName || 'N/A';
-
+    document.getElementById('plant-scientific').innerText = plant.scientific_name?.[0] || 'N/A';
     document.getElementById('plant-watering').innerText = cleanData(plant.watering, 'Moderate');
-    
-    const sunInfo = Array.isArray(plant.sunlight) ? plant.sunlight.join(', ') : plant.sunlight;
-    document.getElementById('plant-sun').innerText = cleanData(sunInfo, 'Partial Shade');
-
+    document.getElementById('plant-sun').innerText = cleanData(plant.sunlight?.join(', '), 'Partial Shade');
     document.getElementById('plant-care').innerText = cleanData(plant.care_level, 'Easy');
     document.getElementById('plant-growth').innerText = cleanData(plant.growth_rate, 'Moderate');
-
-    document.getElementById('plant-img').src = plant.default_image?.regular_url || 'images/placeholder.png';
-
-    document.getElementById('plant-description').innerText = plant.description || 
-        "This species is a beautiful addition to any collection, known for its unique texture and vibrant foliage.";
 }
 
-getPlantData();  
-renderDetails(plant);
+const urlParams = new URLSearchParams(window.location.search);
+const plantId = urlParams.get('id');
+
+if (plantId) {
+    loadPlantDetails(plantId);
+} else if (document.getElementById('plant-list')) {
+    getPlantData();
+}

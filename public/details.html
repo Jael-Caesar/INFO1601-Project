@@ -4,9 +4,6 @@
     <meta charset="UTF-8">
     <title>Plant Details | Aqua Fern Boutique</title>
     <link rel="stylesheet" href="css/style.css">
-<script src="js/cart.js"></script>
-<script type="module" src="js/api.js"></script>
-
 </head>
 
 
@@ -28,7 +25,7 @@
         </ul>
         </ul>
     </nav>
-    
+
     <main class="details-container">
     
     <div class="details-wrapper">
@@ -80,6 +77,10 @@
   <div id="cart-items"></div>
 </div>
 
+<script src="js/cart.js"></script>
+<script type="module" src="js/api.js"></script>
+
+
 <script>
     window.addEventListener('DOMContentLoaded', () => {
         const loginNav = document.querySelector('#nav-login-btn');
@@ -125,6 +126,17 @@
             navList.appendChild(logoutLi);
         }
     });
+</script>
+
+<script type="module">
+    import { loadPlantDetails } from './js/api.js';
+
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+
+    if (id) {
+        loadPlantDetails(id);
+    }
 </script>
 
 </body>

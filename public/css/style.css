@@ -557,14 +557,14 @@ footer .logo:hover {
         width: 100%;
         padding-top: 10px;
         justify-content: center;
-        gap: 5px;
+        gap: 3px;
     }
 
     nav a {
         display: inline-block;
         width: auto;
         padding: 10px;
-        font-size: 15px;
+        font-size: 12px;
     }
     
     .hero {
@@ -580,8 +580,7 @@ footer .logo:hover {
     }
 
     .hero-text h1 {
-        font-size: 32px;
-
+        font-size: 25px;
     }
 
     .hero img {

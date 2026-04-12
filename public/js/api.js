@@ -6,16 +6,13 @@ const API_BASE = `https://perenual.com/api/v2/species-list?`;
 
 export async function getPlantData(page = 1, filters = {}) {
     try {
-        currentPage = page; 
         let url = `${API_BASE}page=${page}&key=${CONFIG.PERENUAL_KEY}`;
         
         Object.keys(filters).forEach(key => {
             if (filters[key] !== undefined && filters[key] !== null) {
-                url = `${API_BASE}page=${page}`;
-                url += `&${key}=${filters[key]}&key=${CONFIG.PERENUAL_KEY}`;
+                url += `&${key}=${filters[key]}`;
             }
         });
-
         console.log("Fetching this URL:", url);
 
         const response = await fetch(url);
@@ -47,11 +44,11 @@ const nextBtn = document.getElementById('next-btn');
 
 if (prevBtn && nextBtn) {
     prevBtn.addEventListener('click', () => {
-        if (currentPage > 1) getPlantData('', currentPage - 1);
+        if (currentPage > 1) getPlantData(currentPage - 1);
     });
 
     nextBtn.addEventListener('click', () => {
-        if (currentPage < lastPage) getPlantData('', currentPage + 1);
+        if (currentPage < lastPage) getPlantData(currentPage + 1);
     });
 };
 

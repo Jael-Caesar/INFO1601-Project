@@ -77,7 +77,7 @@ function renderCart(){
                 <p>${item.name}</p>
               <p>$${item.price} x ${item.quantity}</p>
                  
-                <button class="btn" onclick="removeFromCart(${item.id})">Remove</button>
+                <button class="remove-btn" onclick="removeFromCart(${item.id})">Remove</button>
                 </div>
             </div>
         `;

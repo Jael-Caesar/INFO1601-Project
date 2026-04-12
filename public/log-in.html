@@ -77,19 +77,30 @@
 </div>
 
 <script type="module">
+    import { loginUser } from './js/auth.js';
+
     const loginForm = document.querySelector('#login-form');
     
     if (loginForm) {
-        loginForm.addEventListener('submit', (e) => {
+        loginForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const name = loginForm.querySelector('input[type="text"]').value || "Friend";
+            
+            const email = loginForm.querySelector('.email-field').value;
+            const password = loginForm.querySelector('.password-field').value;
+            const nameInput = loginForm.querySelector('input[type="text"]');
+            const name = nameInput ? nameInput.value : "User";
 
-            alert(`Welcome back, ${name}! 🌿`);
+            try {
+                await loginUser(email, password);
 
-            sessionStorage.setItem('isLoggedIn', 'true');
-            sessionStorage.setItem('userName', name);
+                sessionStorage.setItem('isLoggedIn', 'true');
+                sessionStorage.setItem('userName', name);
 
-            window.location.href = 'shop.html';
+                alert(`Welcome back, ${name}! 🌿`);
+                window.location.href = 'shop.html';
+            } catch (error) {
+                alert(`Login failed: ${error.message}`);
+            }
         });
     }
 </script>

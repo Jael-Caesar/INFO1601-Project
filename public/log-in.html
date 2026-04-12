@@ -86,17 +86,16 @@
             
             const email = loginForm.querySelector('.email-field').value;
             const password = loginForm.querySelector('.password-field').value;
+            const nameInput = loginForm.querySelector('input[type="text"]');
+            const name = nameInput ? nameInput.value : "Gardener";
 
             try {
-                const userCredential = await loginUser(email, password);
-                const user = userCredential.user;
-
-                const displayName = email.split('@')[0];
+                await loginUser(email, password);
 
                 sessionStorage.setItem('isLoggedIn', 'true');
-                sessionStorage.setItem('userName', displayName);
+                sessionStorage.setItem('userName', name);
 
-                alert(`Welcome back! 🌿`);
+                alert(`Welcome back, ${name}! 🌿`);
                 window.location.href = 'shop.html';
             } catch (error) {
                 alert(`Login failed: ${error.message}`);

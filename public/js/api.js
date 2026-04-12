@@ -110,6 +110,21 @@ function renderDetails(plant) {
     document.getElementById('plant-sun').innerText = cleanData(plant.sunlight?.join(', '), 'Partial Shade');
     document.getElementById('plant-care').innerText = cleanData(plant.care_level, 'Easy');
     document.getElementById('plant-growth').innerText = cleanData(plant.growth_rate, 'Moderate');
+
+const cartBtn = document.getElementById('add-to-cart-btn');
+
+if (cartBtn) {
+    const newCartBtn = cartBtn.cloneNode(true);
+    cartBtn.parentNode.replaceChild(newCartBtn, cartBtn);
+
+    newCartBtn.addEventListener('click', () => {
+        addToCart(
+            plant.id, 
+            plant.common_name, 
+            plant.default_image?.regular_url || 'images/placeholder.png'
+        );
+    });
+}
 }
 
 const urlParams = new URLSearchParams(window.location.search);

@@ -3,6 +3,15 @@ let cart = [];
 
 //functon to add to the cart
 function addToCart(id, name, image){
+
+    const isLoggedIn = sessionStorage.getItem('isLoggedIn');
+
+    if (isLoggedIn !== 'true') {
+        alert("Wait! 💐 You need to Log-in or Sign-up to start/continue your Aqua Fern collection.");
+        window.location.href = 'log-in.html'; 
+        return; 
+    }
+
     let existing = cart.find(item =>item.id===id);
     if (existing){
         existing.quantity++;
@@ -16,6 +25,7 @@ function addToCart(id, name, image){
        quantity: 1
       });
     }
+    alert(`${name} added to your emerald collection!`);
     updateCartCount();
     renderCart();
 }
@@ -67,7 +77,7 @@ function renderCart(){
                 <p>${item.name}</p>
               <p>$${item.price} x ${item.quantity}</p>
                  
-                <button onclick="removeFromCart(${item.id})">Remove</button>
+                <button class="btn" onclick="removeFromCart(${item.id})">Remove</button>
                 </div>
             </div>
         `;

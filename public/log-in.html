@@ -40,7 +40,6 @@
 
   <div class="contact-box">
     <form id="login-form">
-        <input type="text" placeholder="Full Name"> 
         <input type="email" class="email-field" placeholder="Email" required>
         <input type="password" class="password-field" placeholder="Password" required>
         <button type="submit" class="btn" id="login-btn">Log In</button>
@@ -87,16 +86,17 @@
             
             const email = loginForm.querySelector('.email-field').value;
             const password = loginForm.querySelector('.password-field').value;
-            const nameInput = loginForm.querySelector('input[type="text"]');
-            const name = nameInput ? nameInput.value : "User";
 
             try {
-                await loginUser(email, password);
+                const userCredential = await loginUser(email, password);
+                const user = userCredential.user;
+
+                const displayName = email.split('@')[0];
 
                 sessionStorage.setItem('isLoggedIn', 'true');
-                sessionStorage.setItem('userName', name);
+                sessionStorage.setItem('userName', displayName);
 
-                alert(`Welcome back, ${name}! 🌿`);
+                alert(`Welcome back! 🌿`);
                 window.location.href = 'shop.html';
             } catch (error) {
                 alert(`Login failed: ${error.message}`);

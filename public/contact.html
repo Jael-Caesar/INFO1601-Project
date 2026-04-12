@@ -37,10 +37,10 @@
   <p>We’d love To Hear From You!</p>
 
   <div class="contact-box">
-    <form>
+    <form id="contact-form">
       <input type="text" placeholder="Your Name" required>
       <input type="email" placeholder="Your Email" required>
-      <textarea placeholder="Your Message" rows="5"></textarea>
+      <textarea placeholder="Your Message" rows="5" required></textarea>
       <button class="btn">Send Message</button>
     </form>
   </div>
@@ -114,6 +114,35 @@
             });
             
             navList.appendChild(logoutLi);
+        }
+    });
+</script>
+
+<script type="module">
+    import { db, collection, addDoc } from './js/auth.js';
+
+    const contactForm = document.getElementById('contact-form');
+
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const name = contactForm.querySelector('input[type="text"]').value;
+        const email = contactForm.querySelector('input[type="email"]').value;
+        const message = contactForm.querySelector('textarea').value;
+
+        try {
+            await addDoc(collection(db, "messages"), {
+                senderName: name,
+                senderEmail: email,
+                text: message,
+                timestamp: new Date()
+            });
+
+            alert(`Thank you, ${name}! 🌿 Your message has been saved and will be reviewed shortly.`);
+            contactForm.reset();
+        } catch (error) {
+            console.error("Error adding document: ", error);
+            alert("Oops! Something went wrong. Please try again.");
         }
     });
 </script>

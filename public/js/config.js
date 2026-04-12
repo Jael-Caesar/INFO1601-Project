@@ -1,5 +1,5 @@
 export const CONFIG = {
-    PERENUAL_KEY: 'sk-FbUA69da6682c12d016093',
+    PERENUAL_KEY: 'sk-q0Vq69dbbd9b12d9016359',
     
     FIREBASE_CONFIG: {
         apiKey: "AIzaSyAcgH1BvNrp6dP57MIRjmyGxF7piZ7gQ5Y",

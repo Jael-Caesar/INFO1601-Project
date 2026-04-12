@@ -13,7 +13,7 @@ const app = initializeApp(CONFIG.FIREBASE_CONFIG);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-export { auth, db, collection, addDoc };
+export { db, collection, addDoc };
 
 export async function registerUser(email, password) {
     return createUserWithEmailAndPassword(auth, email, password);

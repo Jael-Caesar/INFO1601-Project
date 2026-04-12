@@ -175,14 +175,39 @@ nav .logo a{
 
 .product-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 20px;
+    justify-items: center;
 }
 
 .product-grid img{
     width:auto;
     height:120px;
     object-fit:cover;
+}
+
+.product-card {
+    background: #fdfcf4; 
+    border: 1px solid #439622;
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    width: 100%;
+    max-width: 300px;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.product-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover; 
+    border-radius: 10px;
 }
 
 .card{
@@ -477,4 +502,17 @@ footer .logo {
     padding: 15px;
     overflow-y: auto;
     box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+}
+
+.details-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Image on left, Info on right */
+    gap: 40px;
+    align-items: start;
+}
+
+@media (max-width: 768px) {
+    .details-wrapper {
+        grid-template-columns: 1fr; /* Stack on mobile */
+    }
 }

@@ -2,8 +2,6 @@ import { CONFIG } from './config.js';
 let currentPage = 1;
 let lastPage = 1;
 
-import { addToCart } from "cart.js";
-
 const API_BASE = `https://perenual.com/api/v2/species-list?`;
 
 export async function getPlantData(searchQuery = '', page = 1) {
@@ -45,63 +43,57 @@ document.getElementById('next-btn').addEventListener('click', () => {
 });
 
 function renderPlants(plants) {
-    const shopContainer = document.querySelector('#plant-list');
-    if (!shopContainer) {
+    const container = document.getElementById('plant-list');
+    container.innerHTML = '';
+    if (!container) {
         console.error("Shop grid container not found");
         return;
     }
 
-    shopContainer.innerHTML = ''; 
-
     plants.forEach(plant => {
         const img = plant.default_image ? plant.default_image.regular_url : 'assets/placeholder.png';
-        
-        shopContainer.innerHTML += `
-            <div class="products">
-                <img src="${img}" alt="${plant.common_name}">
-                <div class="product-grid">
-                    <h2>${plant.common_name}</h2>
-                    <p class="scientific-name"><em>${plant.scientific_name[0]}</em></p>
-                    <p>Price: $ 50.00 TTD</p>
-                    <button class="btn" onclick="addToCart(${plant.id}, '${plant.common_name}', '${img}')">
-                     Add to Cart
-                     </button>
-
-                    <a href="details.html?id=${plant.id}" class="btn-details">View Details</a>
+     
+        container.innerHTML += `
+            <div class="product-card">
+                <img src="${plant.default_image?.regular_url || 'images/placeholder.png'}" alt="${plant.common_name}">
+                <h3>${plant.common_name}</h3>
+                <p>$50.00</p>
+                <div>
+                    <button class="btn" onclick="addToCart(${plant.id}, '${plant.common_name}', '${plant.default_image?.regular_url}')">Add to Cart</button>
                 </div>
+                <a href="details.html?id=${plant.id}" class="btn-details">View Details</a>
+
             </div>
         `;
     });
 }
 
+function renderDetails(plant) {
+    const cleanData = (value, fallback) => {
+        if (!value || String(value).includes("Upgrade Plan")) {
+            return fallback;
+        }
+        return value;
+    };
 
-async function loadPlantDetails() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const plantId = urlParams.get('id');
+    document.getElementById('plant-name').innerText = plant.common_name || "Boutique Plant";
+    
+    const sciName = Array.isArray(plant.scientific_name) ? plant.scientific_name[0] : plant.scientific_name;
+    document.getElementById('plant-scientific').innerText = sciName || 'N/A';
 
-    if (!plantId || !document.getElementById('plant-name')) return;
+    document.getElementById('plant-watering').innerText = cleanData(plant.watering, 'Moderate');
+    
+    const sunInfo = Array.isArray(plant.sunlight) ? plant.sunlight.join(', ') : plant.sunlight;
+    document.getElementById('plant-sun').innerText = cleanData(sunInfo, 'Partial Shade');
 
-    const API_URL = `https://perenual.com/api/v2/species/details/${plantId}?key=${CONFIG.PERENUAL_KEY}`;
+    document.getElementById('plant-care').innerText = cleanData(plant.care_level, 'Easy');
+    document.getElementById('plant-growth').innerText = cleanData(plant.growth_rate, 'Moderate');
 
-    try {
-        console.log("Fetching details for ID:", plantId); 
-        const response = await fetch(API_URL);
-        const plant = await response.json();
+    document.getElementById('plant-img').src = plant.default_image?.regular_url || 'images/placeholder.png';
 
-        document.getElementById('plant-img').src = plant.default_image?.regular_url || 'assets/placeholder.png';
-        document.getElementById('plant-name').innerText = plant.common_name;
-        document.getElementById('plant-scientific').innerText = plant.scientific_name[0];
-        document.getElementById('plant-description').innerText = plant.description || "No description available.";
-        
-        document.getElementById('plant-watering').innerText = plant.watering || 'N/A';
-        document.getElementById('plant-sun').innerText = plant.sunlight?.join(', ') || 'N/A';
-        document.getElementById('plant-care').innerText = plant.care_level || 'N/A';
-        document.getElementById('plant-growth').innerText = plant.growth_rate || 'N/A';
-
-    } catch (error) {
-        console.error("Aqua Fern Details Error:", error);
-    }
+    document.getElementById('plant-description').innerText = plant.description || 
+        "This species is a beautiful addition to any collection, known for its unique texture and vibrant foliage.";
 }
 
 getPlantData();  
-loadPlantDetails();
+renderDetails(plant);

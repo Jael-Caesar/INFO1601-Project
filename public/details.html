@@ -11,7 +11,7 @@
 
 
 
-<body style="background-color: #f5f0dd;"> <main class="details-container">
+<body style="background-color: #f5f0dd;"> 
     <nav>
         <div class="logo">
             <a href="index.html"><img src="images/a.png" alt="logo"></a>
@@ -22,12 +22,15 @@
             <li><a href="shop.html">Shop</a></li>
             <li><a href="aboutus.html">About</a></li>
             <li><a href="contact.html">Contact</a></li>
-            <li><a href="log-in.html">Log-in</a></li>
-            <li><a href="sign-up.html">Sign-up</a></li>
+            <li><a href="log-in.html" id="nav-login-btn">Log-in</a></li>
+            <li id="nav-signup-item"><a href="sign-up.html">Sign-up</a></li>
             <li><a href="#" onclick="toggleCart()"> Cart (<span id="cart-count">0</span>)</a></li>
         </ul>
         </ul>
     </nav>
+    
+    <main class="details-container">
+    
     <div class="details-wrapper">
         <div class="details-image-box">
             <img id="plant-img" src="assets/placeholder.png" alt="Loading...">
@@ -76,5 +79,53 @@
   <h2>Your Cart</h2>
   <div id="cart-items"></div>
 </div>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        const loginNav = document.querySelector('#nav-login-btn');
+        const status = sessionStorage.getItem('isLoggedIn');
+        const name = sessionStorage.getItem('userName');
+
+        if (status === 'true' && loginNav) {
+            loginNav.innerText = `Hi, ${name} 💐`;
+            loginNav.href = "#"; 
+            loginNav.style.color = "#a18b0e";
+        }
+    });
+</script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        const loginLink = document.querySelector('#nav-login-btn');
+        const signupItem = document.querySelector('#nav-signup-item');
+        
+        const isLoggedIn = sessionStorage.getItem('isLoggedIn');
+        const userName = sessionStorage.getItem('userName');
+
+        if (isLoggedIn === 'true' && loginLink) {
+            loginLink.innerText = `Hi, ${userName || 'User'} 💐`;
+            loginLink.href = "#"; 
+            loginLink.style.color = "#a18b0e";
+            loginLink.style.fontWeight = "bold";
+
+            if (signupItem) signupItem.style.display = 'none';
+
+            const navList = document.querySelector('nav ul');
+            const logoutLi = document.createElement('li');
+            logoutLi.innerHTML = `<a href="#" style="color: #ff6b6b; cursor: pointer;">Logout</a>`;
+            
+            logoutLi.addEventListener('click', (e) => {
+                e.preventDefault();
+                if(confirm("Are you sure you want to log out?")) {
+                    sessionStorage.clear(); 
+                    window.location.href = 'index.html';
+                }
+            });
+            
+            navList.appendChild(logoutLi);
+        }
+    });
+</script>
+
 </body>
 </html>

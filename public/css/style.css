@@ -44,7 +44,7 @@ nav{
 nav ul{
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 10px;
 }
 
 nav a{
@@ -290,6 +290,11 @@ footer .logo {
     margin-bottom: 20px;
 }
 
+footer .logo:hover {
+    transform:translateY(-6px);
+    transition:0.5s;
+}
+
 .footer-line{
     margin:35px auto;
     width:80%;
@@ -436,14 +441,30 @@ footer .logo {
     align-items: center;
     gap: 20px;
     padding: 40px 0;
+    color: #0f4621;
 }
 
 .btn-secondary {
-    background: transparent;
-    color:#1f5f3b;
-    box-shadow: 0 0 20px #eee;
-    padding: 8px 16px;
-    cursor: pointer;
+    margin: 10px;
+    padding: 15px 45px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 800;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color:#f0eccd;
+    box-shadow:0 4px 12px rgba(0, 0, 0, 0.192);
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    cursor:pointer;
+    background-image: linear-gradient(to right, #0f4621 0%, #439622 51%, #0f4621 100%);
+}
+
+.btn-secondary:hover {
+    background-position: right center;
+    background-color: #1f530a;
 }
 
 .btn-secondary:disabled {

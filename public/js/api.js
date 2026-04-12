@@ -5,6 +5,7 @@ let lastPage = 1;
 const API_BASE = `https://perenual.com/api/v2/species-list?`;
 
 export async function getPlantData(page = 1, filters = {}) {
+    currentPage = page;
     try {
         let url = `${API_BASE}page=${page}&key=${CONFIG.PERENUAL_KEY}`;
         
@@ -44,13 +45,17 @@ const nextBtn = document.getElementById('next-btn');
 
 if (prevBtn && nextBtn) {
     prevBtn.addEventListener('click', () => {
-        if (currentPage > 1) getPlantData(currentPage - 1);
+        if (currentPage > 1) {
+            getPlantData(currentPage - 1);
+        }
     });
 
     nextBtn.addEventListener('click', () => {
-        if (currentPage < lastPage) getPlantData(currentPage + 1);
+        if (currentPage < lastPage) {
+            getPlantData(currentPage + 1);
+        }
     });
-};
+}
 
 function renderPlants(plants) {
     const container = document.getElementById('plant-list');
@@ -134,8 +139,12 @@ if (plantId) {
 }
 
 window.applyFilter = (type, value) => {
-    const activeFilters = {};
-    activeFilters[type] = value;
-    
-    getPlantData(1, activeFilters);
+    if (type === 'reset') {
+        currentPage = 1; 
+        getPlantData(1, {});
+    } else {
+        const activeFilters = {};
+        activeFilters[type] = value;
+        getPlantData(1, activeFilters);
+    }
 };

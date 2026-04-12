@@ -26,5 +26,3 @@ export async function loginUser(email, password) {
 export function logoutUser() {
     return signOut(auth);
 }
-
-export { auth };

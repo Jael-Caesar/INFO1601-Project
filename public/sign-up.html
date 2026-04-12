@@ -77,19 +77,29 @@
 </div>
 
 <script type="module">
+    import { registerUser } from './js/auth.js';
+
     const signupForm = document.querySelector('#signup-form');
     
     if (signupForm) {
-        signupForm.addEventListener('submit', (e) => {
+        signupForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             
-            const nameInput = signupForm.querySelector('input[placeholder="Full Name"]');
-            const name = nameInput ? nameInput.value : "New Member";
+            const email = signupForm.querySelector('.email-field').value;
+            const password = signupForm.querySelector('.password-field').value;
+            const name = signupForm.querySelector('input[placeholder="Full Name"]').value;
 
-            alert(`Welcome to the boutique, ${name}! Your account is ready.`);
-            
-            sessionStorage.setItem('isLoggedIn', 'true');
-            window.location.href = 'shop.html';
+            try {
+                await registerUser(email, password);
+                
+                sessionStorage.setItem('isLoggedIn', 'true');
+                sessionStorage.setItem('userName', name);
+                
+                alert(`Welcome to the boutique, ${name}! 🌿`);
+                window.location.href = 'shop.html';
+            } catch (error) {
+                alert(`Error: ${error.message}`);
+            }
         });
     }
 </script>

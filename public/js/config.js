@@ -5,8 +5,9 @@ export const CONFIG = {
         apiKey: "AIzaSyAcgH1BvNrp6dP57MIRjmyGxF7piZ7gQ5Y",
         authDomain: "aqua-fern.firebaseapp.com",
         projectId: "aqua-fern",
-        storageBucket: "aqua-fern.appspot.com",
-        messagingSenderId: "123456789",
-        appId: "1:123456789:web:abcdef"
-    }
+        storageBucket: "aqua-fern.firebasestorage.app",
+        messagingSenderId: "140761553767",
+        appId: "1:140761553767:web:e5750a70df7501b4ecadc2",
+        measurementId: "G-4R0D8V0FV2"
+        }
 };
